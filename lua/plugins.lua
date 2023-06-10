@@ -145,12 +145,42 @@ return require('packer').startup(function(use)
   })
 
   --LaTeX support
-  use({'lervag/vimtex',
-    config = function ()
+  use({
+    'lervag/vimtex',
+    config = function()
       require('plugins.vimtex')
     end
   })
 
+  -- Copy paste registers
+  use({
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      { 'ibhagwan/fzf-lua' },
+    },
+    config = function()
+      require('plugins.neoclip')
+    end,
+  })
+
+  -- Telescope 
+  -- use({
+  --   'nvim-telescope/telescope.nvim',
+  --   tag = '0.1.2',
+  --   event = 'CursorHold',
+  --   cmd = 'Telescope',
+  --   config = function()
+  --     require('plugins.telescope')
+  --   end,
+  --   requires = { { 'nvim-lua/plenary.nvim' } },
+  --
+  -- })
+
+  -- -- Startuptime
+  -- use({
+  --   "dstein64/vim-startuptime"
+  -- })
+  --
   if packer_bootstrap then
     require('packer').sync()
   end
