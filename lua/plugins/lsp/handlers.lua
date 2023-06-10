@@ -28,13 +28,13 @@ M.on_attach = function(client, bufnr)
 
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    vim.keymap.set('n', 'gD', "<cmd>Telescope lsp_declarations<CR>", bufopts)
-    vim.keymap.set('n', 'gd', "<cmd>Telescope lsp_definitions<CR>", bufopts)
+    vim.keymap.set('n', 'gD', "<cmd>FzfLua lsp_declarations<CR>", bufopts)
+    vim.keymap.set('n', 'gd', "<cmd>FzfLua lsp_definitions<CR>", bufopts)
     vim.keymap.set('n', '<leader>vd', "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
     vim.keymap.set('n', '<leader>id', "<cmd>split<CR><cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
     vim.keymap.set('n', '<leader>td', "<cmd>tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
-    vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<CR>", bufopts)
-    vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<CR>", bufopts)
+    vim.keymap.set('n', 'gi', "<cmd>FzfLua lsp_implementations<CR>", bufopts)
+    vim.keymap.set('n', 'gr', "<cmd>FzfLua lsp_references<CR>", bufopts)
 
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 

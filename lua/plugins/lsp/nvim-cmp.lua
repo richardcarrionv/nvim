@@ -2,7 +2,7 @@ local cmp = require('cmp')
 
 local mappings = {
   ['<C-e>'] = cmp.mapping.close(),
-  ['<C-k>'] = cmp.mapping.scroll_docs( -4),
+  ['<C-k>'] = cmp.mapping.scroll_docs(-4),
   ['<C-j>'] = cmp.mapping.scroll_docs(4),
   ['<Enter>'] = cmp.mapping.confirm({ select = true }),
   ['<C-space>'] = cmp.mapping.complete(),
@@ -51,8 +51,7 @@ local aliases = {
 }
 
 cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-  }),
+  mapping = cmp.mapping.preset.insert(mappings),
   sources = cmp.config.sources({
     { name = 'nvim_lsp',      max_item_count = 5 },
     { name = 'luasnip',       max_item_count = 1 },

@@ -118,9 +118,38 @@ return require('packer').startup(function(use)
 
   --Fuzzy finder
   use { 'ibhagwan/fzf-lua',
+    config = function()
+      require('plugins.fzf-lua');
+    end,
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
 
+  -- Autotag
+  use({ 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' })
+
+
+  --Autopairs
+  use({
+    'windwp/nvim-autopairs',
+    config = function()
+      require('plugins.pairs')
+    end,
+  })
+
+  --Gitsigns
+  use({
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('plugins.gitsigns')
+    end
+  })
+
+  --LaTeX support
+  use({'lervag/vimtex',
+    config = function ()
+      require('plugins.vimtex')
+    end
+  })
 
   if packer_bootstrap then
     require('packer').sync()
