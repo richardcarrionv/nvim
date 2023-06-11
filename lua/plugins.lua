@@ -117,12 +117,31 @@ return require('packer').startup(function(use)
   })
 
   --Fuzzy finder
-  use { 'ibhagwan/fzf-lua',
+  -- use { 'ibhagwan/fzf-lua',
+  --   config = function()
+  --     require('plugins.fzf-lua')
+  --   end,
+  --   requires = { 'nvim-tree/nvim-web-devicons' }
+  -- }
+
+  -- Telescope
+  use({
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.2',
+    event = 'CursorHold',
+    cmd = 'Telescope',
     config = function()
-      require('plugins.fzf-lua');
+      require('plugins.telescope')
     end,
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
+    requires = { { 'nvim-lua/plenary.nvim' } },
+
+  })
+
+  use({
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  })
+
 
   -- Autotag
   use({ 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' })
@@ -155,32 +174,11 @@ return require('packer').startup(function(use)
   -- Copy paste registers
   use({
     "AckslD/nvim-neoclip.lua",
-    requires = {
-      { 'ibhagwan/fzf-lua' },
-    },
     config = function()
       require('plugins.neoclip')
     end,
   })
 
-  -- Telescope 
-  -- use({
-  --   'nvim-telescope/telescope.nvim',
-  --   tag = '0.1.2',
-  --   event = 'CursorHold',
-  --   cmd = 'Telescope',
-  --   config = function()
-  --     require('plugins.telescope')
-  --   end,
-  --   requires = { { 'nvim-lua/plenary.nvim' } },
-  --
-  -- })
-
-  -- -- Startuptime
-  -- use({
-  --   "dstein64/vim-startuptime"
-  -- })
-  --
   if packer_bootstrap then
     require('packer').sync()
   end

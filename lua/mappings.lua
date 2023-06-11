@@ -6,11 +6,15 @@ end
 
 local terminal = ""
 local config_path = "~/.config/nvim/"
+local isWindows = vim.fn.has("win32")
 
-if not vim.fn.has("linux") then
+
+if isWindows then
     terminal = "powershell.exe"
     config_path = "~/AppData/Local/nvim/"
 end
+
+
 
 P.terminal = {
     none = {
@@ -25,8 +29,7 @@ P.normal = {
         ["<"] = "5<C-w><",
         ["+"] = "5<C-w>+",
         ["-"] = "5<C-w>-",
-        -- ["."] = command("Telescope file_browser path=%:p:h select_buffer=true"),
-        ["."] = command(':lua require"fzf-lua".files({ cmd = "ls", cwd="%:p:h" })'),
+        ["."] = command("Telescope file_browser path=%:p:h select_buffer=true"),
         --A
         --B
         --C
@@ -36,10 +39,10 @@ P.normal = {
         df = command("Gitsign diffthis"),
         di = command("Trouble document_diagnostics"),
         --F
-        fl = command("FzfLua files"),
-        ff = command("FzfLua buffers"),
+        fl = command("Telescope find_files"),
+        ff = command("Telescope buffers"),
         --G
-        gp = command("FzfLua live_grep "),
+        gp = command("Telescope live_grep "),
         --H
         h = command("tabprevious"),
         --I
@@ -49,7 +52,7 @@ P.normal = {
         --L
         l = command("tabnext"),
         --M
-        ma = command("FzfLua marks"),
+        ma = command("Telescope marks"),
         mt = "<C-w>T",
         ml = "<C-w>L",
         mh = "<C-w>H",
@@ -66,7 +69,7 @@ P.normal = {
         --Q
         q = command("quit"),
         --R
-        rf = command("FzfLua oldfiles"),
+        rf = command("Telescope oldfiles"),
         -- rn = {rename}
         --S
         sd = command("lua vim.diagnostic.open_float({focusable = true, focus=true})"),
