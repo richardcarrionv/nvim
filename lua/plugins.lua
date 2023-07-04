@@ -79,6 +79,15 @@ return require('packer').startup(function(use)
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
 
+  --Null-ls 
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function ()
+      require('plugins.null-ls')
+    end,
+    requires = "nvim-lua/plenary.nvim",
+  })
+
   -- Comment
   use({
     'numToStr/Comment.nvim',
@@ -178,6 +187,8 @@ return require('packer').startup(function(use)
       require('plugins.neoclip')
     end,
   })
+
+  use({'mfussenegger/nvim-jdtls'})
 
   if packer_bootstrap then
     require('packer').sync()

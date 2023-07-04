@@ -14,12 +14,12 @@ local servers = {
     "html",
     "cssls",
     "jsonls",
-    "jdtls",
     "intelephense",
     "pyright",
     "tsserver",
     "lua_ls",
     "texlab",
+    --"jdtls",
 }
 
 mason.setup()

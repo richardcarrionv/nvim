@@ -1,10 +1,7 @@
-
 --vim.loader.enable()
 
 local g = vim.g
 local o = vim.o
-
-
 
 --vim.cmd([[ autocmd VimEnter * colorscheme tokyonight-night ]])
 vim.cmd([[ autocmd VimEnter * colorscheme kanagawa ]])
@@ -19,7 +16,6 @@ vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
 -- Hide statusline by setting laststatus and cmdheight to 0.
 --o.ls = 0
 --o.ch = 0
-
 
 -- Set the winbar to the statusline.
 --o.wbr = "%f"
@@ -36,7 +32,7 @@ g.loaded = 1
 g.loaded_netrwPlugin = 1
 
 o.termguicolors = true
-o.background = 'dark'
+o.background = "dark"
 
 -- Do not save when switching buffers
 o.hidden = true
@@ -52,7 +48,7 @@ o.updatetime = 200
 o.number = true
 o.relativenumber = true
 --o.numberwidth = 5
-o.signcolumn = 'auto'
+o.signcolumn = "auto"
 --o.cursorline = true
 
 -- Better editing experience
@@ -67,15 +63,13 @@ o.tabstop = 2
 o.shiftwidth = 0
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 
-
-
 o.list = true
-o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
+o.listchars = "trail:·,nbsp:◇,tab:→,,extends:▸,precedes:◂"
 -- o.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
 -- o.formatoptions = 'qrn1'
 
 -- Makes neovim and host OS clipboard play nicely with each other
-o.clipboard = 'unnamedplus'
+o.clipboard = "unnamedplus"
 
 -- Case insensitive searching UNLESS /C or capital in search
 o.ignorecase = true
@@ -98,7 +92,7 @@ o.splitright = true
 o.splitbelow = true
 
 -- Preserve view while jumping
-o.jumpoptions = 'view'
+o.jumpoptions = "view"
 
 -- BUG: this won't update the search count after pressing `n` or `N`
 -- When running macros and regexes on a large file, lazy redraw tells neovim/vim not to draw the screen
@@ -111,6 +105,5 @@ o.jumpoptions = 'view'
 -- o.foldminlines = 1
 
 -- Map <leader> to space
-g.mapleader = ' '
-g.maplocalleader = ' '
-
+g.mapleader = " "
+g.maplocalleader = " "
