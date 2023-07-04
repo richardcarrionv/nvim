@@ -32,7 +32,8 @@ g.loaded = 1
 g.loaded_netrwPlugin = 1
 
 o.termguicolors = true
-o.background = "dark"
+
+o.background = 'dark'
 
 -- Do not save when switching buffers
 o.hidden = true

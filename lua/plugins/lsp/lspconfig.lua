@@ -10,47 +10,48 @@ local lspconfig = require('lspconfig')
 --capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 local servers = {
-    "angularls",
-    "html",
-    "cssls",
-    "jsonls",
-    "intelephense",
-    "pyright",
-    "tsserver",
-    "lua_ls",
-    "texlab",
-    --"jdtls",
+  "angularls",
+  "html",
+  "cssls",
+  "jsonls",
+  "jdtls",
+  "intelephense",
+  "pyright",
+  "tsserver",
+  "lua_ls",
+  "texlab",
+  "volar",
 }
 
 mason.setup()
 mason_lspconfig.setup({
-    ensure_installed = servers
+  ensure_installed = servers
 })
 
 
 for _, server in pairs(servers) do
-    local setup_options = {
-        on_attach = handlers.on_attach,
-        capabilities = capabilities
-    }
-    lspconfig[server].setup(setup_options)
+  local setup_options = {
+    on_attach = handlers.on_attach,
+    capabilities = capabilities
+  }
+  lspconfig[server].setup(setup_options)
 end
 
 vim.diagnostic.config({
-    virtual_text = false,
-    signs = true,
-    underline = false,
-    update_in_insert = true,
-    severity_sort = false,
+  virtual_text = false,
+  signs = true,
+  underline = false,
+  update_in_insert = true,
+  severity_sort = false,
 })
 
 local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn",  text = "" },
+  { name = "DiagnosticSignHint",  text = "" },
+  { name = "DiagnosticSignInfo",  text = "" },
 }
 
 for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
