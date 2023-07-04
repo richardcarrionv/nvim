@@ -23,8 +23,6 @@ local format_file = function()
   local is_null_ls = false
 
   for _, client in ipairs(clients) do
-
-    print(dump(client.server_capabilities))
     if client.name == "null-ls" and client.server_capabilities.documentFormattingProvider then
       is_null_ls = true
     end
@@ -32,7 +30,6 @@ local format_file = function()
   end
 
   if is_null_ls then
-    print("Es null")
 
     vim.lsp.buf.format({
       filter = function(client)
@@ -43,7 +40,6 @@ local format_file = function()
 
   else
 
-    print("No es null")
     vim.lsp.buf.format()
 
   end
@@ -78,7 +74,6 @@ M.on_attach = function(client, bufnr)
     format_file()
   end, bufopts)
 
-  print("Attached")
 end
 
 return M

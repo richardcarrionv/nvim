@@ -9,7 +9,6 @@ null_ls.setup({
   on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "<leader>fm", function()
-      print("null-ls")
       vim.lsp.buf.format({
         filter = function(client)
           return client.name == "null-ls"
