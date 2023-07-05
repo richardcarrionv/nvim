@@ -190,6 +190,8 @@ return require('packer').startup(function(use)
 
   use({'mfussenegger/nvim-jdtls'})
 
+  use({'christoomey/vim-tmux-navigator'})
+
   if packer_bootstrap then
     require('packer').sync()
   end

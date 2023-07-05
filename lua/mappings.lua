@@ -89,10 +89,10 @@ P.normal = {
         -- Symbols
     },
     control = {
-        h = "<C-w>h",
-        j = "<C-w>j",
-        k = "<C-w>k",
-        l = "<C-w>l",
+        h = command("TmuxNavigateLeft"),
+        j = command("TmuxNavigateDown"),
+        k = command("TmuxNavigateUp"),
+        l = command("TmuxNavigateRight"),
         n = command("NvimTreeToggle"),
     },
 }
