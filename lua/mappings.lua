@@ -133,3 +133,4 @@ local function make(modes)
 end
 
 make(P)
+vim.keymap.set("x", "<leader>p", [["_dP]])
