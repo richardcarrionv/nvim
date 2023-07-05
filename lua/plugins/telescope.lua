@@ -1,10 +1,12 @@
 local telescope = require('telescope')
+local telescope_ignore = require('plugins.telescope-ignore')
 telescope.setup {
   defaults = {
     path_display = function(opts, path)
       local tail = require("telescope.utils").path_tail(path)
       return string.format("%s (%s)", tail, path)
     end,
+    file_ignore_patterns = telescope_ignore.ignored_files,
     mappings = {
       i = {
         ["<C-k>"] = "move_selection_previous",
@@ -96,4 +98,3 @@ telescope.setup {
 }
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension("neoclip")
-
