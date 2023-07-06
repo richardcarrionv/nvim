@@ -10,7 +10,6 @@ vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg ]])
 
 vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
-
 -- vim.cmd([[ autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252 ]])
 -- vim.cmd([[ autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg ]])
 -- Hide statusline by setting laststatus and cmdheight to 0.
