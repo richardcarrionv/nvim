@@ -194,6 +194,7 @@ return require('packer').startup(function(use)
   -- Navigation for tmux and neovim
   use({ 'christoomey/vim-tmux-navigator' })
 
+  -- ThePrimeagen Harpoon
   use({
     'ThePrimeagen/harpoon',
     requires = {
@@ -201,6 +202,13 @@ return require('packer').startup(function(use)
     }
   })
 
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require('plugins.surround')
+    end
+  })
 
   if packer_bootstrap then
     require('packer').sync()
