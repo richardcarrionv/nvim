@@ -30,9 +30,15 @@ P.normal = {
     ["+"] = "5<C-w>+",
     ["-"] = "5<C-w>-",
     ["."] = command("Telescope file_browser path=%:p:h select_buffer=true"),
+    [";"] = command("lua require('harpoon.ui').toggle_quick_menu()"),
     --A
+    aa = command("lua require('harpoon.mark').add_file()"),
+    aj = command("lua require('harpoon.ui').nav_file(1)"),
+    ak = command("lua require('harpoon.ui').nav_file(2)"),
+    al = command("lua require('harpoon.ui').nav_file(3)"),
+    ["a;"] = command("lua require('harpoon.ui').nav_file(4)"),
     --B
-    --C
+    --C 
     -- ca = {code action}
     co = command("tabnew | tcd " .. config_path .. " | edit lua/plugins.lua  | vsplit init.lua "),
     --D

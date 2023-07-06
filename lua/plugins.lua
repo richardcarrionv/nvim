@@ -79,10 +79,10 @@ return require('packer').startup(function(use)
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
 
-  --Null-ls 
+  --Null-ls
   use({
     "jose-elias-alvarez/null-ls.nvim",
-    config = function ()
+    config = function()
       require('plugins.null-ls')
     end,
     requires = "nvim-lua/plenary.nvim",
@@ -188,9 +188,19 @@ return require('packer').startup(function(use)
     end,
   })
 
-  use({'mfussenegger/nvim-jdtls'})
+  -- Java Language Server
+  use({ 'mfussenegger/nvim-jdtls' })
 
-  use({'christoomey/vim-tmux-navigator'})
+  -- Navigation for tmux and neovim
+  use({ 'christoomey/vim-tmux-navigator' })
+
+  use({
+    'ThePrimeagen/harpoon',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+    }
+  })
+
 
   if packer_bootstrap then
     require('packer').sync()
