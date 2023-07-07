@@ -151,4 +151,4 @@ local enye = ":silent! %s/\\C\\\\\\~n/ñ/g<CR>";
 
 make(P)
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set("n", "<leader>lx", a..e..i..o..u..am..em..um..om..um..enye)
+vim.keymap.set("n", "<leader>xx", a..e..i..o..u..am..em..um..om..um..enye)
