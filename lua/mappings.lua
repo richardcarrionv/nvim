@@ -9,12 +9,10 @@ local config_path = "~/.config/nvim/"
 local isWindows = vim.fn.has("win32")
 
 
-if isWindows then
+if not isWindows then
   terminal = "powershell.exe"
   config_path = "~/AppData/Local/nvim/"
 end
-
-
 
 P.terminal = {
   none = {
