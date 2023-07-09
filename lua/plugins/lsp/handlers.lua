@@ -68,7 +68,7 @@ M.on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>na", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
 
-  vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action <CR>", bufopts)
+  vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
 
   vim.keymap.set("n", "<leader>fm", function()
     format_file()

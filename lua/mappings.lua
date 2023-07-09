@@ -148,7 +148,10 @@ local im = ":silent! %s/\\C\\\\'I/Í/g<CR>";
 local om = ":silent! %s/\\C\\\\'O/Ó/g<CR>";
 local um = ":silent! %s/\\C\\\\'U/Ú/g<CR>";
 local enye = ":silent! %s/\\C\\\\\\~n/ñ/g<CR>";
+local enyem = ":silent! %s/\\C\\\\\\~N/Ñ/g<CR>";
+--[^']*
+local quotes = ":%s/\"\\([^']*\\)\"/``\\1''/g<CR>";
 
 make(P)
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set("n", "<leader>xx", a..e..i..o..u..am..em..um..om..um..enye)
+vim.keymap.set("n", "<leader>xx", a..e..i..o..u..am..em..um..om..um..enye..enyem..quotes)

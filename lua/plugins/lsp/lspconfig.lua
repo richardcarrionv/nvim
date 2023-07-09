@@ -21,6 +21,7 @@ local servers = {
   "lua_ls",
   "texlab",
   "volar",
+  "clangd",
 }
 
 mason.setup()
