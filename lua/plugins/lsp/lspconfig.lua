@@ -22,6 +22,7 @@ local servers = {
   "texlab",
   "volar",
   "clangd",
+  "tailwindcss",
 }
 
 mason.setup()
