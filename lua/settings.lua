@@ -9,7 +9,7 @@ vim.cmd([[ autocmd VimEnter * colorscheme kanagawa ]])
 vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg ]])
 
 vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
-vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
+--vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
 -- vim.cmd([[ autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252 ]])
 -- vim.cmd([[ autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg ]])
 -- Hide statusline by setting laststatus and cmdheight to 0.
@@ -57,7 +57,7 @@ o.smarttab = true
 o.cindent = true
 
 o.autoindent = true
-o.wrap = true
+o.wrap = false
 o.textwidth = 300
 o.tabstop = 2
 o.shiftwidth = 0
