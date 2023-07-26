@@ -11,6 +11,8 @@
   - eslint
   - prettier
 - ripgrep and fd
+- LaTeX
+  - Fedora: texlive-scheme-full
 
 ### Additional Dependencies for Windows
 
