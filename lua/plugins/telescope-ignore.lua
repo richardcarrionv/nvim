@@ -7,6 +7,7 @@ M.ignored_files = {
   "vendor/*",
   "%.lock",
   "__pycache__/*",
+  "__init__.py",
   "%.sqlite3",
   "%.ipynb",
   "node_modules/*",

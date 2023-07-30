@@ -6,7 +6,7 @@ require("nvim-tree").setup({
   sync_root_with_cwd = true,
   actions = {
     open_file = { 
-      quit_on_open = true,
+      quit_on_open = false,
     },
   },
   filters = {
@@ -15,6 +15,7 @@ require("nvim-tree").setup({
       '.fdb_latexmk ',
       '.fls ',
       '.synctex.gz ',
+      '__init__.py',
     }
   },
   renderer = {
