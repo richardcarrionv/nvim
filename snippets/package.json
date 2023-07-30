@@ -8,6 +8,10 @@
       {
         "language": "javascriptreact",
         "path": "./javascript/react.json"
+      },
+      {
+        "language": "python",
+        "path": "./python/python.json"
       }
     ]
   }
