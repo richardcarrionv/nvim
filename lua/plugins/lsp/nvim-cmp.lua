@@ -72,8 +72,8 @@ cmp.setup({
       -- Kind icons
       item.kind = string.format('%s %s', icons[item.kind], item.kind)
       -- Source
-      -- item.menu = string.format('[%s]', aliases[entry.source.name] or entry.source.name)
-      item.menu = ''
+      item.menu = string.format('[%s]', aliases[entry.source.name] or entry.source.name)
+      -- item.menu = ''
       return item
     end,
   },

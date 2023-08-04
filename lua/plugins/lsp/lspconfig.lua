@@ -3,11 +3,11 @@ local handlers = require('plugins.lsp.handlers')
 local mason = require('mason')
 local mason_lspconfig = require('mason-lspconfig')
 local lspconfig = require('lspconfig')
---local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 
---local capabilities = vim.lsp.protocol.make_client_capabilities()
---capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 local servers = {
   "angularls",

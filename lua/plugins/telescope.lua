@@ -67,7 +67,8 @@ telescope.setup {
       initial_mode = "normal",
     },
     oldfiles = {
-      initial_mode = "normal"
+      initial_mode = "normal",
+      cwd_only=true
     },
   },
   extensions = {

@@ -5,13 +5,11 @@ null_ls.setup({
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.google_java_format,
     null_ls.builtins.code_actions.eslint,
-    -- null_ls.builtins.diagnostics.pylint.with({
-    --   diagnostics_postprocess = function(diagnostic)
-    --     diagnostic.code = diagnostic.message_id
-    --   end,
-    -- }),
-    -- null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.black,
+
+    -- Python
+    null_ls.builtins.formatting.autopep8,
+    -- null_ls.builtins.code_actions.refactoring,
+    null_ls.builtins.formatting.isort,
   },
   on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }

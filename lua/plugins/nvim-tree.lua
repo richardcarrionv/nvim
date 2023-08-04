@@ -16,6 +16,7 @@ require("nvim-tree").setup({
       '.fls ',
       '.synctex.gz ',
       '__init__.py',
+      '.null-ls'
     }
   },
   renderer = {

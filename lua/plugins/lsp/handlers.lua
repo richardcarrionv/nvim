@@ -1,17 +1,46 @@
 -- Handlers
 M = {}
 
+local function filter(arr, fn)
+  if type(arr) ~= "table" then
+    return arr
+  end
+
+  local filtered = {}
+  for k, v in pairs(arr) do
+    if fn(v, k, arr) then
+      table.insert(filtered, v)
+    end
+  end
+
+  return filtered
+end
+
+local function filterReactDTS(value)
+  return string.match(value.filename, 'react/index.d.ts') == nil
+end
+
+local function on_list(options)
+  local items = options.items
+  if #items > 1 then
+    items = filter(items, filterReactDTS)
+  end
+
+  vim.fn.setqflist({}, ' ', { title = options.title, items = items, context = options.context })
+  vim.api.nvim_command('cfirst') -- or maybe you want 'copen' instead of 'cfirst'
+end
+
 local function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
+  if type(o) == 'table' then
+    local s = '{ '
+    for k, v in pairs(o) do
+      if type(k) ~= 'number' then k = '"' .. k .. '"' end
+      s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
+    end
+    return s .. '} '
+  else
+    return tostring(o)
+  end
 end
 
 local format_file = function()
@@ -26,22 +55,17 @@ local format_file = function()
     if client.name == "null-ls" and client.server_capabilities.documentFormattingProvider then
       is_null_ls = true
     end
-
   end
 
   if is_null_ls then
-
     vim.lsp.buf.format({
       filter = function(client)
         return client.name == "null-ls"
       end,
       async = true,
     })
-
   else
-
     vim.lsp.buf.format()
-
   end
 end
 
@@ -52,9 +76,18 @@ M.on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "gD", "<cmd>Telescope lsp_declarations<CR>", bufopts)
   vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", bufopts)
-  vim.keymap.set("n", "<leader>vd", "<cmd>vs<CR><cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
-  vim.keymap.set("n", "<leader>id", "<cmd>split<CR><cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
-  vim.keymap.set("n", "<leader>td", "<cmd>tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
+  vim.keymap.set("n", "<leader>vd", function()
+    vim.cmd("vsplit")
+    vim.lsp.buf.definition { on_list = on_list }
+  end, bufopts)
+  vim.keymap.set("n", "<leader>id", function()
+    vim.cmd("split")
+    vim.lsp.buf.definition { on_list = on_list }
+  end, bufopts)
+  vim.keymap.set("n", "<leader>td", function()
+    vim.cmd("tab split")
+    vim.lsp.buf.definition { on_list = on_list }
+  end, bufopts)
   vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", bufopts)
   vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", bufopts)
 
@@ -73,7 +106,6 @@ M.on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>fm", function()
     format_file()
   end, bufopts)
-
 end
 
 return M
