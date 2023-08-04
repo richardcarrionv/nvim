@@ -3,10 +3,10 @@
 local g = vim.g
 local o = vim.o
 
---vim.cmd([[ autocmd VimEnter * colorscheme tokyonight-night ]])
-vim.cmd([[ autocmd VimEnter * colorscheme kanagawa ]])
+-- vim.cmd([[ autocmd VimEnter * colorscheme tokyonight-night ]])
+-- vim.cmd([[ autocmd VimEnter * colorscheme kanagawa ]])
 
-vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg ]])
+vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg]])
 
 vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 --vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
@@ -14,11 +14,13 @@ vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 -- vim.cmd([[ autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg ]])
 -- Hide statusline by setting laststatus and cmdheight to 0.
 --o.ls = 0
---o.ch = 0
+o.ch = 0
 
 -- Set the winbar to the statusline.
 --o.wbr = "%f"
-
+vim.opt.laststatus = 2 -- Or 3 for global statusline
+vim.opt.statusline = "%F %m %= %l:%c / %L"
+-- vim.opt.guitablabel = "%f"
 -- With vertical splits, the statusline would still show up at the
 -- bottom of the split. A quick fix is to just set the statusline
 -- to empty whitespace (it can't be an empty string because then

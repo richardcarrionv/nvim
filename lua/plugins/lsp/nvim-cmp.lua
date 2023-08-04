@@ -50,11 +50,23 @@ local mappings = {
   end, { "i", "s" }),
 }
 
-
 cmp.setup({
+  enabled = function()
+    -- disable completion in comments
+    local context = require 'cmp.config.context'
+    -- keep command mode completion enabled when cursor is in a comment
+    if vim.api.nvim_get_mode().mode == 'c' then
+      vim.cmd('set pumheight=0')
+      return true
+    else
+      vim.cmd('set pumheight=14')
+      return not context.in_treesitter_capture("comment")
+          and not context.in_syntax_group("Comment")
+    end
+  end,
   mapping = cmp.mapping.preset.insert(mappings),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp',      max_item_count = 10 },
+    { name = 'nvim_lsp',      max_item_count = 50 },
     { name = 'luasnip',       max_item_count = 5 },
     { name = 'path',          max_item_count = 3 },
     { name = 'latex_symbols', max_item_count = 3 },
@@ -62,6 +74,9 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
+  -- window = {
+  --   -- completion = cmp.config.window.bordered(),
+  -- },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)

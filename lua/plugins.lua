@@ -50,6 +50,13 @@ return require('packer').startup(function(use)
 
   --ColorScheme
   use('rebelot/kanagawa.nvim')
+  use({
+    'rose-pine/neovim',
+    as = "rose-pine",
+    config = function ()
+      require('plugins.rose-pine')
+    end
+  })
 
   --Treesitter: Syntax-Highlighting
   use({

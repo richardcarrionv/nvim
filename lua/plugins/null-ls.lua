@@ -6,6 +6,8 @@ null_ls.setup({
     null_ls.builtins.formatting.google_java_format,
     null_ls.builtins.code_actions.eslint,
 
+    null_ls.builtins.formatting.rustywind,
+
     -- Python
     null_ls.builtins.formatting.autopep8,
     -- null_ls.builtins.code_actions.refactoring,

@@ -86,6 +86,7 @@ P.normal = {
     ti = command("split | terminal " .. terminal) .. "i",
     --U
     --V
+    vs = command("source $MYVIMRC"),
     --W
     w = command("write"),
     --Y
