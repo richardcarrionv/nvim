@@ -14,7 +14,7 @@ vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 -- vim.cmd([[ autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg ]])
 -- Hide statusline by setting laststatus and cmdheight to 0.
 --o.ls = 0
-o.ch = 0
+--o.ch = 0
 
 -- Set the winbar to the statusline.
 --o.wbr = "%f"
