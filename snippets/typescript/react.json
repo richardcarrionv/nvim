@@ -1,12 +1,27 @@
 {
-    "reactFunctionComponent": {
-        "prefix": "flcom",
-        "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
-        "description": "Creates a React function component without PropTypes"
-    },
-    "reactFunctionComponentWithCustomName": {
-        "prefix": "com",
-        "body": "import React from 'react'\n\ninterface ${1:interfacename}{\n}\n\nconst ${2:functionname}: React.FC<${1:interfacename}> = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${2:functionname}",
-        "description": "Creates a React function component with custom name"
-    }
+  "reactFunctionComponent": {
+    "prefix": "flcmp",
+    "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
+    "description": "Creates a React function component without PropTypes"
+  },
+  "reactFunctionComponentWithCustomName": {
+    "prefix": "cmp",
+    "body": "\ninterface ${1:Component}Props{\n\t${2}\n}\n\nconst ${3:Component} = ({${4}}: ${1:Component}Props) => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n\nexport default ${3:Component}",
+    "description": "Creates a React function component"
+  },
+  "reactFunctionComponentWithCustomNameNoArgs": {
+    "prefix": "cmpnoprops",
+    "body": "const ${1:Component} = () => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n\nexport default ${1:Component}",
+    "description": "Creates a React function component with no props"
+  },
+  "reactLocalComponent": {
+    "prefix": "lccmp",
+    "body": "\ninterface ${1:Component}Props{\n\t${2}\n}\n\nconst ${3:Component} = ({${4}}: ${1:Component}Props) => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n",
+    "description": "Creates a React function component without export"
+  },
+  "reactLocalComponentNoProps": {
+    "prefix": "lccmpnoprops",
+    "body": "\nconst ${1:Component} = () => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n",
+    "description": "Creates a React function component without export"
+  }
 }
