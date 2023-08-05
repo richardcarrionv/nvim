@@ -14,6 +14,9 @@ if not isWindows then
   config_path = "~/AppData/Local/nvim/"
 end
 
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv")
+
 P.terminal = {
   none = {
     ["<Esc>"] = "<C-\\><C-n>"
@@ -21,6 +24,12 @@ P.terminal = {
 }
 
 P.normal = {
+  none = { 
+    n = "nzzzv",
+    N = "Nzzzv",
+    ["<C-d>"] = "<C-d>zz",
+    ["<C-u>"] = "<C-u>zz"
+  },
   leader = {
     ["<Enter>"] = "o<Esc>",
     [">"] = "5<C-w>>",
@@ -130,6 +139,9 @@ local function make(modes)
     end,
     terminal = function(keymap, action)
       vim.keymap.set("t", keymap, action, { noremap = true, silent = true })
+    end,
+    visual = function (keymap, action)
+      vim.keymap.set("v", keymap, action, { noremap = true, silent = true })
     end
   }
   for mode, mappings in pairs(modes) do
