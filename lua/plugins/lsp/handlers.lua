@@ -60,6 +60,7 @@ local format_file = function()
   if is_null_ls then
     vim.lsp.buf.format({
       filter = function(client)
+        print("null-ls-handler")
         return client.name == "null-ls"
       end,
       async = true,
@@ -101,7 +102,7 @@ M.on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>na", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
 
-  vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
+  vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", bufopts)
 
   vim.keymap.set("n", "<leader>fm", function()
     format_file()

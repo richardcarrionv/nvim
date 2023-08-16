@@ -3,7 +3,7 @@
 local g = vim.g
 local o = vim.o
 
--- vim.cmd([[ autocmd VimEnter * colorscheme tokyonight-night ]])
+--vim.cmd([[ autocmd VimEnter * colorscheme tokyonight-night ]])
 -- vim.cmd([[ autocmd VimEnter * colorscheme kanagawa ]])
 
 vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg]])
@@ -33,6 +33,8 @@ g.loaded = 1
 g.loaded_netrwPlugin = 1
 
 o.termguicolors = true
+
+o.hls = false
 
 o.background = 'dark'
 

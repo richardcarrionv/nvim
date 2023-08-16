@@ -3,9 +3,12 @@ local mappings = require('plugins.misc.nvim-tree-mappings')
 require("nvim-tree").setup({
   on_attach = mappings.on_attach,
   hijack_cursor = true,
+  sort = {
+    sorter = 'extension',
+  },
   sync_root_with_cwd = true,
   actions = {
-    open_file = { 
+    open_file = {
       quit_on_open = false,
     },
   },
@@ -86,4 +89,3 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
-

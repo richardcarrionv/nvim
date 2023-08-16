@@ -46,11 +46,15 @@ P.normal = {
     ["a;"] = command("lua require('harpoon.ui').nav_file(4)"),
     --B
     --C 
+    ck = command("lprevious"),
+    cj = command("lnext"),
     -- ca = {code action}
     co = command("tabnew | tcd " .. config_path .. " | edit lua/plugins.lua  | vsplit init.lua "),
     --D
     df = command("Gitsign diffthis"),
     di = command("Trouble document_diagnostics"),
+    --E
+    -- es = command("EslintFixAll"),
     --F
     fl = command("Telescope find_files"),
     ff = command("Telescope buffers"),
@@ -76,6 +80,7 @@ P.normal = {
     nd = vim.diagnostic.goto_next,
     nf = command("NvimTreeFindFile"),
     --O
+    ol = command("lopen"),
     --P
     --pd = { execute = vim.diagnostic.goto_prev },
     pd = command("Gitsigns preview_hunk"),
@@ -168,3 +173,4 @@ local quotes = ":silent! %s/\"\\([^']*\\)\"/``\\1''/g<CR>";
 make(P)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>xx", a..e..i..o..u..am..em..um..om..um..enye..enyem..quotes)
+vim.keymap.set("n", "<leader>sp", a..e..i..o..u..am..em..um..om..um..enye..enyem)

@@ -49,13 +49,25 @@ return require('packer').startup(function(use)
   use('kyazdani42/nvim-web-devicons')
 
   --ColorScheme
-  use('rebelot/kanagawa.nvim')
+  use({
+    'rebelot/kanagawa.nvim',
+    config = function()
+      require('plugins.kanagawa')
+    end
+  })
   use({
     'rose-pine/neovim',
     as = "rose-pine",
-    config = function ()
+    config = function()
       require('plugins.rose-pine')
     end
+  })
+  use({
+    "owickstrom/vim-colors-paramount"
+  })
+  use({ 'nyoom-engineering/oxocarbon.nvim' })
+  use({
+    "folke/tokyonight.nvim",
   })
 
   --Treesitter: Syntax-Highlighting
@@ -222,6 +234,19 @@ return require('packer').startup(function(use)
     run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
+  })
+
+  use({
+    "folke/trouble.nvim",
+    requires = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require('plugins.trouble')
+    end
+  })
+
+  use({
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
   })
 
   if packer_bootstrap then

@@ -1,20 +1,21 @@
+local variable = "hello world";
 require('rose-pine').setup({
   --- @usage 'auto'|'main'|'moon'|'dawn'
   variant = 'main',
   --- @usage 'main'|'moon'|'dawn'
-  dark_variant = 'main',
+  dark_variant = 'moon',
   bold_vert_split = false,
   dim_nc_background = false,
   disable_background = false,
   disable_float_background = false,
-  disable_italics = true,
+  disable_italics = false,
 
 
   --- @usage string hex value or named color from rosepinetheme.com/palette
   groups = {
-    background = '#000000',
+    background = '#0a0a0a',
     background_nc = '_experimental_nc',
-    panel = '#000000',
+    panel = '#0f0f0f',
     panel_nc = 'base',
     border = 'highlight_med',
     comment = 'muted',
@@ -44,15 +45,16 @@ require('rose-pine').setup({
     ColorColumn = { bg = 'rose' },
 
     -- Blend colours against the "base" background
-    CursorLine = { bg = 'foam', blend = 10 },
-    StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+    CursorLine = { bg = 'foam', fg = "foam", blend = 10 },
+    StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
 
     -- By default each group adds to the existing config.
     -- If you only want to set what is written in this config exactly,
     -- you can set the inherit option:
     Search = { bg = 'foam', fg = '#000000', inherit = false },
+    String = { fg = "#f6d59b", inherit = false },
+    Constant = { fg = "#f6d59b", inherit = false },
+    Number = { fg = "#f6d59b", inherit = false },
   }
 })
 
--- Set colorscheme after options
-vim.cmd('colorscheme rose-pine')

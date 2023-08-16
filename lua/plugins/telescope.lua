@@ -11,7 +11,7 @@ telescope.setup {
       i = {
         ["<C-k>"] = "move_selection_previous",
         ["<C-j>"] = "move_selection_next",
-        ["<C-p>"] = "send_to_qflist",
+        ["<C-l>"] = "send_selected_to_loclist",
         ["<C-h>"] = "select_horizontal",
         ["<C-v>"] = "select_vertical",
 
@@ -23,6 +23,7 @@ telescope.setup {
       n = {
         ["k"] = "move_selection_previous",
         ["j"] = "move_selection_next",
+        ["l"] = "send_selected_to_loclist",
         ["<leader>q"] = "close",
         ["q"] = "close",
 
