@@ -174,6 +174,10 @@ local quotes = ":silent! %s/\"\\([^']*\\)\"/``\\1''/g<CR>";
 local q_marks = ":silent! %s/\\C;?/¿/g<CR>";
 local bangs = ":silent! %s/\\C;!!/¡/g<CR>";
 
+
+
+vim.api.nvim_create_user_command('LatexLayout', "silent !i3-msg 'resize grow width 10 px or 10 ppt; move right'", {})
+
 make(P)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>xx", a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. quotes)
