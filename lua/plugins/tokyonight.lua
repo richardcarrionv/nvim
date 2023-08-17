@@ -20,8 +20,8 @@ require("tokyonight").setup({
   ---@param colors ColorScheme
   on_highlights = function(hl, cl)
     hl.StatusLine = {
-      bg = "#241539",
-      fg = "#bca3de"
+      bg = cl.blue7,
+      fg = cl.blue,
     }
     hl.StatusLineNC = {
       bg = cl.bg,
@@ -29,6 +29,10 @@ require("tokyonight").setup({
     }
     hl["@tag.tsx"] = {
       fg = cl.blue
+    }
+    hl.TabLineSel = {
+      bg = "#301c4c",
+      fg = "#bca3de"
     }
   end,
 })

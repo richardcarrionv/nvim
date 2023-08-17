@@ -24,7 +24,7 @@ P.terminal = {
 }
 
 P.normal = {
-  none = { 
+  none = {
     n = "nzzzv",
     N = "Nzzzv",
     ["<C-d>"] = "<C-d>zz",
@@ -45,7 +45,7 @@ P.normal = {
     al = command("lua require('harpoon.ui').nav_file(3)"),
     ["a;"] = command("lua require('harpoon.ui').nav_file(4)"),
     --B
-    --C 
+    --C
     ck = command("lprevious"),
     cj = command("lnext"),
     -- ca = {code action}
@@ -145,7 +145,7 @@ local function make(modes)
     terminal = function(keymap, action)
       vim.keymap.set("t", keymap, action, { noremap = true, silent = true })
     end,
-    visual = function (keymap, action)
+    visual = function(keymap, action)
       vim.keymap.set("v", keymap, action, { noremap = true, silent = true })
     end
   }
@@ -154,23 +154,28 @@ local function make(modes)
   end
 end
 
-local a = ":silent! %s/\\C\\\\'a/á/g<CR>";
-local e = ":silent! %s/\\C\\\\'e/é/g<CR>";
-local i = ":silent! %s/\\C\\\\'i/í/g<CR>";
-local o = ":silent! %s/\\C\\\\'o/ó/g<CR>";
-local u = ":silent! %s/\\C\\\\'u/ú/g<CR>";
+local a = ":silent! %s/\\C\\(;;\\|\\\\'\\)a/á/g<CR>";
+local e = ":silent! %s/\\C\\(;;\\|\\\\'\\)e/é/g<CR>";
+local i = ":silent! %s/\\C\\(;;\\|\\\\'\\)i/í/g<CR>";
+local o = ":silent! %s/\\C\\(;;\\|\\\\'\\)o/ó/g<CR>";
+local u = ":silent! %s/\\C\\(;;\\|\\\\'\\)u/ú/g<CR>";
 
-local am = ":silent! %s/\\C\\\\'A/Á/g<CR>";
-local em = ":silent! %s/\\C\\\\'E/É/g<CR>";
-local im = ":silent! %s/\\C\\\\'I/Í/g<CR>";
-local om = ":silent! %s/\\C\\\\'O/Ó/g<CR>";
-local um = ":silent! %s/\\C\\\\'U/Ú/g<CR>";
-local enye = ":silent! %s/\\C\\\\\\~n/ñ/g<CR>";
-local enyem = ":silent! %s/\\C\\\\\\~N/Ñ/g<CR>";
+local am = ":silent! %s/\\C\\(;;\\|\\\\'\\)A/Á/g<CR>";
+local em = ":silent! %s/\\C\\(;;\\|\\\\'\\)E/É/g<CR>";
+local im = ":silent! %s/\\C\\(;;\\|\\\\'\\)I/Í/g<CR>";
+local om = ":silent! %s/\\C\\(;;\\|\\\\'\\)O/Ó/g<CR>";
+local um = ":silent! %s/\\C\\(;;\\|\\\\'\\)U/Ú/g<CR>";
+
+local enye = ":silent! %s/\\C\\(\\~\\|;;\\|\\\\'\\)n/ñ/g<CR>";
+local enyem = ":silent! %s/\\C\\(\\~\\|;;\\|\\\\'\\)N/Ñ/g<CR>";
 --[^']*
 local quotes = ":silent! %s/\"\\([^']*\\)\"/``\\1''/g<CR>";
 
+local q_marks = ":silent! %s/\\C;?/¿/g<CR>";
+local bangs = ":silent! %s/\\C;!!/¡/g<CR>";
+
 make(P)
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set("n", "<leader>xx", a..e..i..o..u..am..em..um..om..um..enye..enyem..quotes)
-vim.keymap.set("n", "<leader>sp", a..e..i..o..u..am..em..um..om..um..enye..enyem)
+vim.keymap.set("n", "<leader>xx", a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. quotes)
+vim.keymap.set("n", "<leader>sp",
+  a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. q_marks .. bangs)
