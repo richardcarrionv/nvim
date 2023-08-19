@@ -17,6 +17,8 @@ require('nvim-treesitter.configs').setup({
     'php',
     'vim',
     'latex',
+    'sql',
+    'bash',
   },
   highlight = {
     enable = true,

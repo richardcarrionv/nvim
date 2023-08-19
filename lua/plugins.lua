@@ -249,6 +249,17 @@ return require('packer').startup(function(use)
     cmd = 'CodeActionMenu',
   })
 
+  use({
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
+    },
+    config = function ()
+      require('plugins.refactoring')
+    end
+  })
+
   if packer_bootstrap then
     require('packer').sync()
   end

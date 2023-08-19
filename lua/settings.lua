@@ -34,7 +34,7 @@ g.loaded_netrwPlugin = 1
 
 o.termguicolors = true
 
-o.hls = false
+o.hls = true
 
 o.background = 'dark'
 
