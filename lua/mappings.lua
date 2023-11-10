@@ -171,15 +171,17 @@ local enyem = ":silent! %s/\\C\\(\\~\\|;;\\|\\\\'\\)N/Ñ/g<CR>";
 --[^']*
 local quotes = ":silent! %s/\"\\([^']*\\)\"/``\\1''/g<CR>";
 
-local q_marks = ":silent! %s/\\C;?/¿/g<CR>";
-local bangs = ":silent! %s/\\C;!!/¡/g<CR>";
+local q_marks = ":silent! %s/??/¿/g<CR>";
+local bangs = ":silent! %s/!!/¡/g<CR>";
 
 
-
-vim.api.nvim_create_user_command('LatexLayout', "silent !i3-msg 'resize grow width 10 px or 10 ppt; move right'", {})
+vim.api.nvim_create_user_command('LatexLayout', "silent !i3-msg 'resize grow width 20 px or 20 ppt; move right'", {})
 
 make(P)
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set("n", "<leader>xx", a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. quotes)
+vim.keymap.set("n", "<leader>xl", command("VimtexCompile"))
+vim.keymap.set("n", "<leader>xe", command("VimtexErrors"))
+vim.keymap.set("n", "<leader>xx",
+  a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. quotes)
 vim.keymap.set("n", "<leader>sp",
   a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. q_marks .. bangs)
