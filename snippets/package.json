@@ -16,6 +16,10 @@
       {
         "language": "python",
         "path": "./python/python.json"
+      },
+      {
+        "language": ["plaintex", "tex"],
+        "path": "./latex/latex.json"
       }
     ]
   }

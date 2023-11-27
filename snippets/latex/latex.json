@@ -1,0 +1,39 @@
+{
+  "ThreePartTable": {
+    "prefix": "threetable",
+    "body": [
+      "\\begin{center}",
+      "\n\\begin{ThreePartTable}",
+      "\n\t\\footnotesize",
+      "\n\t\\setstretch{1}",
+      "\n\t\\begin{TableNotes}[flushleft]",
+      "\n\t\t\\normalsize",
+      "\n\t\t\\centering",
+      "\n\t\t\\item \\elaboradopor",
+      "\n\t\\end{TableNotes}",
+      "\n\t\t\\begin{longtable}{l l}",
+      "\n\t\t\t\\caption{$1}",
+      "\n\t\t\t\\label{tab:$2} \\\\\\\\",
+      "\n\t\t\t\\toprule",
+      "\n\t\t\t\\multicolumn{1}{c}{\\textbf{$3}} & ",
+      "\n\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
+      "\n\t\t\t\\midrule",
+      "\n\t\t\t\\endfirsthead",
+      "\n\t\t\t\\toprule",
+      "\n\t\t\t\\multicolumn{1}{c}{\\textbf{$3}} & ",
+      "\n\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
+      "\n\t\t\t\\midrule",
+      "\n\t\t\t\\endhead",
+      "\n\t\t\ta & b \\\\\\\\",
+      "\n\t\t\tc & d \\\\\\\\",
+      "\n\t\t\t$5",
+      "\n\t\t\t\\hline",
+      "\n\t\t\\end{longtable}",
+      "\n\t\t%\\insertTableNotes",
+      "\n\\end{ThreePartTable}",
+      "\\end{center}",
+      "$0"
+    ],
+    "description": "Add a three part long table"
+  }
+}

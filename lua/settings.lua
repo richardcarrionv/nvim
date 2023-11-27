@@ -3,9 +3,6 @@
 local g = vim.g
 local o = vim.o
 
---vim.cmd([[ autocmd VimEnter * colorscheme tokyonight-night ]])
--- vim.cmd([[ autocmd VimEnter * colorscheme kanagawa ]])
-
 vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg]])
 
 vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])

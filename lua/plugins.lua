@@ -255,10 +255,12 @@ return require('packer').startup(function(use)
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" }
     },
-    config = function ()
+    config = function()
       require('plugins.refactoring')
     end
   })
+
+  use({ "godlygeek/tabular" })
 
   if packer_bootstrap then
     require('packer').sync()

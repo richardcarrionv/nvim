@@ -2,7 +2,7 @@ require("settings")
 require("mappings")
 require("plugins")
 
-require("plugins.tokyonight")
+require("plugins.rose-pine")
 
 function tesis()
   vim.cmd("VimtexCompile")
