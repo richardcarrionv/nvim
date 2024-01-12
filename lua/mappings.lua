@@ -182,6 +182,19 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>xl", command("VimtexCompile"))
 vim.keymap.set("n", "<leader>xe", command("VimtexErrors"))
 vim.keymap.set("n", "<leader>xo", command("VimtexTocToggle"))
+vim.keymap.set("n", "<leader>xs", command("VimtexStatus"))
 vim.keymap.set("n", "<leader>xx",
   a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. quotes)
 vim.keymap.set("n", "<leader>sp", a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. q_marks .. bangs)
+
+vim.keymap.set("n", "<leader>sm", command("Telescope resume"), {
+  noremap = true,
+  silent = true,
+  desc = "Resume",
+})
+
+vim.keymap.set("n", "<leader>bx", command("Telescope bibtex"), {
+  noremap = true,
+  silent = true,
+  desc = "Resume",
+})

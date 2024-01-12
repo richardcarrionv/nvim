@@ -262,6 +262,15 @@ return require('packer').startup(function(use)
 
   use({ "godlygeek/tabular" })
 
+  use { "nvim-telescope/telescope-bibtex.nvim",
+    requires = {
+      { 'nvim-telescope/telescope.nvim' },
+    },
+    config = function()
+      require "telescope".load_extension("bibtex")
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

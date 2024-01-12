@@ -2,34 +2,27 @@
   "ThreePartTable": {
     "prefix": "threetable",
     "body": [
-      "\\begin{ThreePartTable}",
-      "\t\\footnotesize",
-      "\t\\setstretch{1}",
-      "\t\\begin{TableNotes}[flushleft]",
-      "\t\t\\normalsize",
-      "\t\t\\centering",
-      "\t\t\\item \\elaboradopor",
-      "\t\\end{TableNotes}",
-      "\t\t\\begin{longtable}{l l}",
-      "\t\t\t\\caption{$1}",
-      "\t\t\t\\label{table:$2} \\\\\\\\",
-      "\t\t\t\\toprule",
-      "\t\t\t\\multicolumn{1}{c}{\\textbf{$3}} & ",
-      "\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
-      "\t\t\t\\midrule",
-      "\t\t\t\\endfirsthead",
-      "\t\t\t\\toprule",
-      "\t\t\t\\multicolumn{1}{c}{\\textbf{$3}} & ",
-      "\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
-      "\t\t\t\\midrule",
-      "\t\t\t\\endhead",
-      "\t\t\ta & b \\\\\\\\",
-      "\t\t\tc & d \\\\\\\\",
-      "\t\t\t$5",
-      "\t\t\t\\bottomrule",
-      "\t\t\\end{longtable}",
-      "\t\t%\\insertTableNotes",
-      "\\end{ThreePartTable}",
+      "\\begin{singlespace}",
+      "\t\\begin{ThreePartTable}",
+      "\t\t\\footnotesize",
+      "\t\t\t\\begin{longtable}{l l}",
+      "\t\t\t\t\\caption{$1}",
+      "\t\t\t\t\\label{table:$2} \\\\\\\\",
+      "\t\t\t\t\\toprule",
+      "\t\t\t\t\\multicolumn{1}{c}{\\textbf{$3}} & ",
+      "\t\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
+      "\t\t\t\t\\midrule",
+      "\t\t\t\t\\endfirsthead",
+      "\t\t\t\t\\toprule",
+      "\t\t\t\t\\multicolumn{1}{c}{\\textbf{$3}} & ",
+      "\t\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
+      "\t\t\t\t\\midrule",
+      "\t\t\t\t\\endhead",
+      "\t\t\t\t$5",
+      "\t\t\t\t\\bottomrule",
+      "\t\t\t\\end{longtable}",
+      "\t\\end{ThreePartTable}",
+      "\\end{singlespace}",
       "$0"
     ],
     "description": "Add a three part long table"
@@ -58,14 +51,20 @@
     "description": "Pretty Reference"
   },
   "listing": {
-    "prefix": "lst",
+    "prefix": "smlst",
     "body": [
       "\\begin{hyphen}",
-      "\t\\begin{lstlisting}[caption={$1}, label={lst:$2}]",
-      "\t\t$3",
-      "\t\\end{lstlisting}",
+      "\t\\lstinputlisting[caption={$1}, label={lst:$2}]{$3}",
       "\\end{hyphen}"
     ],
     "description": "Listado"
+  },
+  "listingLineRange": {
+    "prefix": "lst",
+    "body": [
+      "\\lstinputlisting[caption={$1}, linerange={TXo-TXf}, label={lst:$2}]{$3}"
+    ],
+    "description": "Listado con linerange"
   }
 }
+
