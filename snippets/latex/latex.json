@@ -51,11 +51,13 @@
     "description": "Pretty Reference"
   },
   "listing": {
-    "prefix": "smlst",
+    "prefix": "lstin",
     "body": [
-      "\\begin{hyphen}",
-      "\t\\lstinputlisting[caption={$1}, label={lst:$2}]{$3}",
-      "\\end{hyphen}"
+      " \\begin{hyphen} ",
+      " \\begin{lstlisting}[caption={$1}, label={lst:$2}] ",
+      "$3",
+      " \\end{lstlisting} ",
+      " \\end{hyphen} "
     ],
     "description": "Listado"
   },
@@ -67,4 +69,3 @@
     "description": "Listado con linerange"
   }
 }
-

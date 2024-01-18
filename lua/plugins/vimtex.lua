@@ -3,8 +3,8 @@ function refresh()
   print("HOLA")
 end
 
-
-vim.cmd([[  autocmd VimEnter * augroup vimtex_event_1 | au! | au User VimtexEventCompileSuccess call system('pkill -HUP mupdf-gl') | augroup END]])
+vim.cmd(
+  [[  autocmd VimEnter * augroup vimtex_event_1 | au! | au User VimtexEventCompileSuccess call system('pkill -HUP mupdf-gl') | augroup END]])
 
 
 vim.g.vimtex_view_method              = 'mupdf'

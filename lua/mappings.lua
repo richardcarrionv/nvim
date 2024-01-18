@@ -198,3 +198,58 @@ vim.keymap.set("n", "<leader>bx", command("Telescope bibtex"), {
   silent = true,
   desc = "Resume",
 })
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+function punt_serch_and_replace(opts)
+  search = opts.fargs[1]
+  replace = opts.fargs[2]
+  punctuation = "\\(\\ \\|;\\|,\\|\\.\\|:\\|\\)"
+  final_punt = "\\(\\ \\|;\\|,\\|\\.\\|:\\)"
+  -- print(search)
+  -- print(replace)
+  -- print(dump(s))
+  vim.cmd("%s/\\C"..punctuation..search..final_punt.."/\\1"..replace.."\\2/gc")
+end
+
+function serch_and_replace(opts)
+  search = opts.fargs[1]
+  replace = opts.fargs[2]
+  vim.cmd("%s/\\C"..search.."/"..replace.."/gc")
+end
+
+vim.api.nvim_create_user_command('PR', punt_serch_and_replace, {nargs="*"})
+
+vim.api.nvim_create_user_command('SR', serch_and_replace, {nargs="*"})
+
+function fsize(file)
+  local current = file:seek()   -- get current position
+  local size = file:seek("end") -- get file size
+  file:seek("set", current)     -- restore position
+  return size
+end
+
+function out_file(opts)
+  filename = opts.fargs[1]
+  print(filename)
+  libs_file = io.open("out/" .. filename, "r")
+  print(fsize(libs_file) / 1000000)
+  libs_file:close()
+end
+
+vim.api.nvim_create_user_command('OutFile', out_file, {nargs="*"})
+
+vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set("n", "<leader>ot", ":OutFile main.pdf<CR>")
+
+
+

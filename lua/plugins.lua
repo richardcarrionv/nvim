@@ -271,6 +271,24 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
+  }
+
+  use {
+    'TrevorS/uuid-nvim',
+    lazy = true,
+    config = function()
+      require('plugins.uuid-plugin')
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

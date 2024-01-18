@@ -38,7 +38,21 @@ for _, server in pairs(servers) do
     on_attach = handlers.on_attach,
     capabilities = capabilities
   }
-  lspconfig[server].setup(setup_options)
+
+  if server == "tsserver" then
+    lspconfig[server].setup({
+      on_attach = handlers.on_attach,
+      capabilities = capabilities,
+      init_options = {
+        hostInfo = "neovim",
+        preferences = {
+          providePrefixAndSuffixTextForRename = false
+        }
+      }
+    })
+  else
+    lspconfig[server].setup(setup_options)
+  end
 end
 
 vim.diagnostic.config({

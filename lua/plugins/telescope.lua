@@ -14,11 +14,12 @@ telescope.setup {
         ["<C-l>"] = "send_selected_to_loclist",
         ["<C-h>"] = "select_horizontal",
         ["<C-v>"] = "select_vertical",
+        ["<C-]>"] = "close",
 
-        ["<leader>q"] = "close",
-        ["<leader>v"] = "select_vertical",
-        ["<leader>h"] = "select_horizontal",
-        ["<leader>t"] = "select_tab",
+        -- ["<leader>q"] = "close",
+        -- ["<leader>v"] = "select_vertical",
+        -- ["<leader>h"] = "select_horizontal",
+        -- ["<leader>t"] = "select_tab",
       },
       n = {
         ["k"] = "move_selection_previous",
@@ -27,8 +28,8 @@ telescope.setup {
         ["<leader>q"] = "close",
         ["q"] = "close",
 
-        ["v"] = "select_vertical",
-        ["h"] = "select_horizontal",
+        -- ["v"] = "select_vertical",
+        -- ["h"] = "select_horizontal",
 
         ["t"] = "select_tab",
       }
