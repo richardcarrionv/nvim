@@ -4,7 +4,7 @@ telescope.setup {
   defaults = {
     path_display = function(opts, path)
       local tail = require("telescope.utils").path_tail(path)
-      return string.format("%s (%s)", tail, path)
+      return string.format("%s [%s]", tail, path)
     end,
     file_ignore_patterns = telescope_ignore.ignored_files,
     mappings = {
@@ -67,9 +67,9 @@ telescope.setup {
     },
 
     lsp_references = {
-      theme = "dropdown",
+      -- theme = "dropdown",
       initial_mode = "normal",
-      show_line = false,
+      show_line = true,
     },
 
     lsp_definitions = {

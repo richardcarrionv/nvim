@@ -1,4 +1,4 @@
-local variable = "hello world";
+-- local variable = "hello world";
 require('rose-pine').setup({
   --- @usage 'auto'|'main'|'moon'|'dawn'
   variant = 'main',
@@ -6,17 +6,18 @@ require('rose-pine').setup({
   dark_variant = 'moon',
   bold_vert_split = false,
   dim_nc_background = false,
-  disable_background = false,
+  disable_background = true,
   disable_float_background = false,
   disable_italics = false,
+  dim_inactive_windows = false,
 
 
   --- @usage string hex value or named color from rosepinetheme.com/palette
   groups = {
     background = '#0a0a0a',
-    background_nc = '_experimental_nc',
+    background_nc = '#0a0a0a',
     panel = '#0f0f0f',
-    panel_nc = 'base',
+    panel_nc = '#0f0f0f',
     border = 'highlight_med',
     comment = 'muted',
     link = 'iris',

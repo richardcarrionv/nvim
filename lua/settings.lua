@@ -9,7 +9,6 @@ vim.cmd([[ autocmd VimEnter * highlight EndOfBuffer guifg=black guifg=black]])
 vim.cmd([[ autocmd VimEnter * nnoremap <silent> J :let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>]])
 
 
-
 -- vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 --vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
 -- vim.cmd([[ autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252 ]])

@@ -69,6 +69,7 @@ return require('packer').startup(function(use)
   use({
     "folke/tokyonight.nvim",
   })
+  use { "ellisonleao/gruvbox.nvim" }
 
   --Treesitter: Syntax-Highlighting
   use({
@@ -156,8 +157,6 @@ return require('packer').startup(function(use)
   use({
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
-    event = 'CursorHold',
-    cmd = 'Telescope',
     config = function()
       require('plugins.telescope')
     end,
