@@ -1,18 +1,21 @@
--- local variable = "hello world";
-require('rose-pine').setup({
-  --- @usage 'auto'|'main'|'moon'|'dawn'
-  variant = 'main',
-  --- @usage 'main'|'moon'|'dawn'
-  dark_variant = 'moon',
-  bold_vert_split = false,
-  dim_nc_background = false,
-  disable_background = true,
-  disable_float_background = false,
-  disable_italics = false,
+require("rose-pine").setup({
+  variant = "auto",        -- auto, main, moon, or dawn
+  dark_variant = "main",   -- main, moon, or dawn
   dim_inactive_windows = false,
+  extend_background_behind_borders = true,
 
+  enable = {
+    terminal = true,
+    legacy_highlights = true,     -- Improve compatibility for previous versions of Neovim
+    migrations = true,            -- Handle deprecated options automatically
+  },
 
-  --- @usage string hex value or named color from rosepinetheme.com/palette
+  styles = {
+    bold = true,
+    italic = true,
+    transparency = true,
+  },
+
   groups = {
     background = '#0a0a0a',
     background_nc = '#0a0a0a',
@@ -56,7 +59,20 @@ require('rose-pine').setup({
     String = { fg = "#f6d59b", inherit = false },
     Constant = { fg = "#f6d59b", inherit = false },
     Number = { fg = "#f6d59b", inherit = false },
-  }
+    TelescopeBorder = { fg = "highlight_high", bg = "#0a0a0a" },
+  },
+
+  before_highlight = function(group, highlight, palette)
+    -- Disable all undercurls
+    -- if highlight.undercurl then
+    --     highlight.undercurl = false
+    -- end
+    --
+    -- Change palette colour
+    -- if highlight.fg == palette.pine then
+    --     highlight.fg = palette.foam
+    -- end
+  end,
 })
 
 vim.cmd("colorscheme rose-pine")
