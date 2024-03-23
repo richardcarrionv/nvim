@@ -10,6 +10,7 @@
   - npm
   - eslint
   - prettier
+    - prettier-plugin-tailwindcss
 - ripgrep and fd
 - LaTeX
   - Fedora: texlive-scheme-full

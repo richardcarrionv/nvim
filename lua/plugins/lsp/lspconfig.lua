@@ -25,6 +25,7 @@ local servers = {
   "tailwindcss",
   "eslint",
   "bashls",
+  "astro",
 }
 
 mason.setup()
