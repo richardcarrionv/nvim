@@ -3,6 +3,7 @@
 ### Dependecies
 
 - C compiler: zig, gcc-c++, clang (LLVM)
+- libxcrypt-compat
 - Python
   - pip
   - black
