@@ -6,23 +6,23 @@ local RANGE_FORMATTING = methods.internal.RANGE_FORMATTING
 null_ls.setup({
   sources = {
 
-    null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.beautysh,
-    null_ls.builtins.formatting.latexindent,
-    null_ls.builtins.formatting.sql_formatter,
-    null_ls.builtins.diagnostics.sqlfluff,
-
-
-
-    -- null_ls.builtins.formatting.rustywind,
-    -- null_ls.builtins.code_actions.eslint,
-
-
-    null_ls.builtins.formatting.google_java_format,
-
-    -- Python
-    null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.formatting.isort,
+    -- null_ls.builtins.formatting.prettierd,
+    -- null_ls.builtins.formatting.beautysh,
+    -- null_ls.builtins.formatting.latexindent,
+    -- null_ls.builtins.formatting.sql_formatter,
+    -- null_ls.builtins.diagnostics.sqlfluff,
+    --
+    --
+    --
+    -- -- null_ls.builtins.formatting.rustywind,
+    -- -- null_ls.builtins.code_actions.eslint,
+    --
+    --
+    -- null_ls.builtins.formatting.google_java_format,
+    --
+    -- -- Python
+    -- null_ls.builtins.formatting.autopep8,
+    -- null_ls.builtins.formatting.isort,
   },
   on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }

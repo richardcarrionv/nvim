@@ -8,7 +8,6 @@ local o = vim.o
 vim.cmd([[ autocmd VimEnter * highlight EndOfBuffer guifg=black guifg=black]])
 vim.cmd([[ autocmd VimEnter * nnoremap <silent> J :let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>]])
 
-
 -- vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 --vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
 -- vim.cmd([[ autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252 ]])
@@ -37,7 +36,7 @@ o.termguicolors = true
 
 o.hls = true
 
-o.background = 'dark'
+o.background = "dark"
 
 -- Do not save when switching buffers
 o.hidden = true
@@ -68,7 +67,7 @@ o.tabstop = 2
 o.shiftwidth = 0
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 
-o.list = true
+o.list = false
 o.listchars = "trail:·,nbsp:◇,tab:→,,extends:▸,precedes:◂"
 -- o.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
 -- o.formatoptions = 'qrn1'

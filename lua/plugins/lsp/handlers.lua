@@ -57,17 +57,17 @@ local format_file = function()
     end
   end
 
-  if is_null_ls then
-    vim.lsp.buf.format({
-      filter = function(client)
-        print("null-ls-handler")
-        return client.name == "null-ls"
-      end,
-      async = true,
-    })
-  else
+  -- if is_null_ls then
+  --   vim.lsp.buf.format({
+  --     filter = function(client)
+  --       print("null-ls-handler")
+  --       return client.name == "null-ls"
+  --     end,
+  --     async = true,
+  --   })
+  -- else
     vim.lsp.buf.format()
-  end
+  -- end
 end
 
 M.on_attach = function(client, bufnr)
@@ -104,9 +104,6 @@ M.on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", bufopts)
 
-  vim.keymap.set("n", "<leader>fm", function()
-    format_file()
-  end, bufopts)
 end
 
 return M
