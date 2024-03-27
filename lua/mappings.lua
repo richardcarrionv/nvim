@@ -44,6 +44,7 @@ P.normal = {
 		al = command("lua require('harpoon.ui').nav_file(3)"),
 		["a;"] = command("lua require('harpoon.ui').nav_file(4)"),
 		--B
+		bd = command("bd!"),
 		--C
 		ck = command("lprevious"),
 		cj = command("lnext"),
