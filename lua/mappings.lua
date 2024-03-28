@@ -255,3 +255,4 @@ vim.api.nvim_create_user_command("OutFile", out_file, { nargs = "*" })
 
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>ot", ":OutFile main.pdf<CR>")
+

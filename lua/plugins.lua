@@ -213,6 +213,10 @@ return require("packer").startup(function(use)
 		},
 	})
 
+	use({ "folke/neodev.nvim" })
+
+	use("/home/carri/Workspace/lazy-term")
+
 	use({
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -283,6 +287,8 @@ return require("packer").startup(function(use)
 			require("plugins.uuid-plugin")
 		end,
 	})
+
+	use("rafcamlet/nvim-luapad")
 
 	if packer_bootstrap then
 		require("packer").sync()
