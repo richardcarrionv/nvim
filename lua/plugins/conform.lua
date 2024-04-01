@@ -14,6 +14,7 @@ require("conform").setup({
 		typescriptreact = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		tex = { "latexindent" },
+		java = { "google-java-format" },
 	},
 })
 
