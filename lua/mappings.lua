@@ -256,3 +256,13 @@ vim.api.nvim_create_user_command("OutFile", out_file, { nargs = "*" })
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>ot", ":OutFile main.pdf<CR>")
 
+vim.keymap.set("n", "<leader>dn", ":lua require('dap').continue()<CR>")
+vim.keymap.set("n", "<leader>dk", ":lua require('dap').toggle_breakpoint()<CR>")
+vim.keymap.set("n", "<leader>di", ":lua require('dap').step_into()<CR>")
+vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<CR>")
+vim.keymap.set("n", "<leader>dd", ":lua require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open()<CR>")
+vim.keymap.set("n", "<leader>dh", ": lua require('dap.ui.widgets').hover()<CR>")
+vim.keymap.set("n", "<leader>ds", ": lua require('dapui').toggle()<CR>")
+
+vim.keymap.set("n", "<leader>zm", ":tab split<CR>")
+
