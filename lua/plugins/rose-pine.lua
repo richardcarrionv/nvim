@@ -19,8 +19,6 @@ require("rose-pine").setup({
   groups = {
     background = '#0a0a0a',
     background_nc = '#0a0a0a',
-    panel = '#0f0f0f',
-    panel_nc = '#0f0f0f',
     border = 'highlight_med',
     comment = 'muted',
     link = 'iris',
