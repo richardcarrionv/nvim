@@ -141,14 +141,6 @@ return require("packer").startup(function(use)
 		{ "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
 	})
 
-	--Fuzzy finder
-	-- use { 'ibhagwan/fzf-lua',
-	--   config = function()
-	--     require('plugins.fzf-lua')
-	--   end,
-	--   requires = { 'nvim-tree/nvim-web-devicons' }
-	-- }
-
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -157,11 +149,6 @@ return require("packer").startup(function(use)
 			require("plugins.telescope")
 		end,
 		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-
-	use({
-		"nvim-telescope/telescope-file-browser.nvim",
-		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	})
 
 	-- Autotag
@@ -191,14 +178,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Copy paste registers
-	use({
-		"AckslD/nvim-neoclip.lua",
-		config = function()
-			require("plugins.neoclip")
-		end,
-	})
-
 	-- Java Language Server
 	use({ "mfussenegger/nvim-jdtls" })
 
@@ -208,14 +187,11 @@ return require("packer").startup(function(use)
 	-- ThePrimeagen Harpoon
 	use({
 		"ThePrimeagen/harpoon",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-		},
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
 	use({ "folke/neodev.nvim" })
-
-	use("/home/carri/Workspace/lazy-term")
 
 	use({
 		"kylechui/nvim-surround",
@@ -247,17 +223,6 @@ return require("packer").startup(function(use)
 		cmd = "CodeActionMenu",
 	})
 
-	use({
-		"ThePrimeagen/refactoring.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-		config = function()
-			require("plugins.refactoring")
-		end,
-	})
-
 	use({ "godlygeek/tabular" })
 
 	use({
@@ -267,16 +232,6 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("telescope").load_extension("bibtex")
-		end,
-	})
-
-	use({
-		"nvim-telescope/telescope-live-grep-args.nvim",
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-		},
-		config = function()
-			require("telescope").load_extension("live_grep_args")
 		end,
 	})
 

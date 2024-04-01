@@ -31,18 +31,11 @@ P.normal = {
 	},
 	leader = {
 		["<Enter>"] = "o<Esc>",
-		[">"] = "5<C-w>>",
-		["<"] = "5<C-w><",
-		["+"] = "5<C-w>+",
-		["-"] = "5<C-w>-",
-		["."] = command("Telescope file_browser path=%:p:h select_buffer=true"),
-		[";"] = command("lua require('harpoon.ui').toggle_quick_menu()"),
+		[">"] = "10<C-w>>",
+		["<"] = "10<C-w><",
+		["+"] = "10<C-w>+",
+		["-"] = "10<C-w>-",
 		--A
-		aa = command("lua require('harpoon.mark').add_file()"),
-		aj = command("lua require('harpoon.ui').nav_file(1)"),
-		ak = command("lua require('harpoon.ui').nav_file(2)"),
-		al = command("lua require('harpoon.ui').nav_file(3)"),
-		["a;"] = command("lua require('harpoon.ui').nav_file(4)"),
 		--B
 		bd = command("bd!"),
 		--C
@@ -52,7 +45,7 @@ P.normal = {
 		co = command("tabnew | tcd " .. config_path .. " | edit lua/plugins.lua  | vsplit init.lua "),
 		--D
 		df = command("Gitsign diffthis"),
-		di = command("Trouble document_diagnostics"),
+		-- di = command("Trouble document_diagnostics"),
 		--E
 		-- es = command("EslintFixAll"),
 		--F
@@ -253,16 +246,13 @@ end
 
 vim.api.nvim_create_user_command("OutFile", out_file, { nargs = "*" })
 
-vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>ot", ":OutFile main.pdf<CR>")
 
-vim.keymap.set("n", "<leader>dn", ":lua require('dap').continue()<CR>")
+vim.keymap.set("n", "<leader>dd", ":lua require('dap').continue()<CR>")
 vim.keymap.set("n", "<leader>dk", ":lua require('dap').toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>di", ":lua require('dap').step_into()<CR>")
 vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<CR>")
-vim.keymap.set("n", "<leader>dd", ":lua require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open()<CR>")
-vim.keymap.set("n", "<leader>dh", ": lua require('dap.ui.widgets').hover()<CR>")
-vim.keymap.set("n", "<leader>ds", ": lua require('dapui').toggle()<CR>")
+vim.keymap.set("n", "<leader>dh", ":lua require('dap.ui.widgets').hover()<CR>")
+vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 
 vim.keymap.set("n", "<leader>zm", ":tab split<CR>")
-
