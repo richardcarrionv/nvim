@@ -256,3 +256,9 @@ vim.keymap.set("n", "<leader>dh", ":lua require('dap.ui.widgets').hover()<CR>")
 vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 
 vim.keymap.set("n", "<leader>zm", ":tab split<CR>")
+
+vim.keymap.set(
+	"n",
+	"<leader>nn",
+	":lua require('telescope.builtin').find_files({search_dirs={'~/Workspace/notes/'}})<CR>"
+)
