@@ -2,7 +2,7 @@
 
 ### Dependecies
 
-- ```bash
+- ```txt
   sudo dnf instal zig clang nodejs pip ripgrep fd-find mupdf libxcrypt-compat
   ```
 - ```pip install black ```
