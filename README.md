@@ -2,6 +2,10 @@
 
 ### Dependecies
 
+``` zig clang nodejs pip ripgrep fd-find```
+``` pip install black ```
+```npm i -g eslint prettier prettierd prettier-plugin-tailwindcss```
+
 - C compiler: zig, gcc-c++, clang (LLVM)
 - libxcrypt-compat
 - Python
