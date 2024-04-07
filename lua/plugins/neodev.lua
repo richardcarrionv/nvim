@@ -1,1 +1,0 @@
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
