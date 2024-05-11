@@ -1,4 +1,3 @@
-require('nvim-treesitter.install').compilers = { "zig" }
 require('nvim-treesitter.configs').setup({
   auto_install = true,
   ensure_installed = {
