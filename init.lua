@@ -8,6 +8,7 @@ require("plugins.uuid-plugin")
 require("plugins.dap")
 require("dapui").setup()
 require("plugins.harpoon")
+require("plugins.fidget")
 
 function find_buffer_by_name(buffer_name)
 	for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do

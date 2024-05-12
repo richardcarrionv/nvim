@@ -9,7 +9,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 local servers = {
-	"angularls",
 	"html",
 	"cssls",
 	"jsonls",
@@ -19,12 +18,10 @@ local servers = {
 	"tsserver",
 	"lua_ls",
 	"texlab",
-	"volar",
-	"clangd",
 	"tailwindcss",
 	"eslint",
 	"bashls",
-	"astro",
+  "kotlin_language_server"
 }
 
 require("neodev").setup({})
