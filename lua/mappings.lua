@@ -92,6 +92,7 @@ P.normal = {
 		tt = command("tabnew | terminal " .. terminal) .. "i",
 		ts = command("vsplit | terminal " .. terminal) .. "i",
 		ti = command("split | terminal " .. terminal) .. "i",
+		ta = command("TroubleToggle"),
 		--U
 		--V
 		vs = command("source $MYVIMRC"),

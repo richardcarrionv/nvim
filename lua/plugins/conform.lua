@@ -8,11 +8,10 @@ require("conform").setup({
       vim.lsp.buf.format()
       return { "rustywind" }
     end,
-    -- Use a sub-list to run only the first available formatter
-    javascript = { { "prettier" } },
-    javascriptreact = { { "prettier" } },
-    typescriptreact = { { "prettier" } },
-    typescript = { { "prettier" } },
+    javascript = { "prettier", "eslint_d" },
+    javascriptreact = { "prettier", "eslint_d" },
+    typescriptreact = { "prettier", "eslint_d" },
+    typescript = { "prettier", "eslint_d" },
     tex = { "latexindent" },
     java = { "google-java-format" },
   },
@@ -28,6 +27,7 @@ vim.api.nvim_create_user_command("Conform", function(args)
     }
   end
   require("conform").format({ async = true, lsp_fallback = true, range = range })
+  -- require("lint").try_lint()
 end, { range = true })
 
 vim.api.nvim_create_user_command("OConform", function(args)
@@ -40,4 +40,5 @@ vim.api.nvim_create_user_command("OConform", function(args)
     }
   end
   require("conform").format({ async = true, lsp_fallback = false, range = range })
+  -- require("lint").try_lint()
 end, { range = true })

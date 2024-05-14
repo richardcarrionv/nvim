@@ -19,7 +19,6 @@ local servers = {
 	"lua_ls",
 	"texlab",
 	"tailwindcss",
-	"eslint",
 	"bashls",
   "kotlin_language_server"
 }
@@ -70,7 +69,7 @@ vim.diagnostic.config({
 	signs = true,
 	underline = false,
 	update_in_insert = true,
-	severity_sort = false,
+	severity_sort = true,
 })
 
 local signs = {

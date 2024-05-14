@@ -250,9 +250,14 @@ return require("packer").startup(function(use)
 
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 
-  use({
-    "j-hui/fidget.nvim",
-  })
+  use({ "j-hui/fidget.nvim", })
+
+  use({ "mfussenegger/nvim-lint" })
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   if packer_bootstrap then
     require("packer").sync()
