@@ -14,6 +14,7 @@ require("conform").setup({
     typescript = { "prettier", "eslint_d" },
     tex = { "latexindent" },
     java = { "google-java-format" },
+    sql = { "sql_formatter" },
   },
 })
 

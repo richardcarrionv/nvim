@@ -16,6 +16,7 @@ end
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv")
 
+
 P.terminal = {
 	none = {
 		["<Esc>"] = "<C-\\><C-n>",
@@ -24,6 +25,8 @@ P.terminal = {
 
 P.normal = {
 	none = {
+    j = "gj",
+    k = "gk",
 		n = "nzzzv",
 		N = "Nzzzv",
 		["<C-d>"] = "<C-d>zz",
@@ -256,7 +259,7 @@ vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<CR>")
 vim.keymap.set("n", "<leader>dh", ":lua require('dap.ui.widgets').hover()<CR>")
 vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 
-vim.keymap.set("n", "<leader>zm", ":tab split<CR>")
+vim.keymap.set("n", "<leader>zm", ":ZenMode<CR>")
 
 vim.keymap.set(
 	"n",

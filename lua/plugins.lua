@@ -254,10 +254,16 @@ return require("packer").startup(function(use)
 
   use({ "mfussenegger/nvim-lint" })
 
+  use({ "folke/zen-mode.nvim" })
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+
+  use({
+    'JoosepAlviste/nvim-ts-context-commentstring',
+  })
 
   if packer_bootstrap then
     require("packer").sync()
