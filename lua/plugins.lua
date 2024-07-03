@@ -132,10 +132,11 @@ return require("packer").startup(function(use)
         },
       },
     },
-    { "hrsh7th/cmp-path",         after = "nvim-cmp" },
-    { "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
-    { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-    { "hrsh7th/cmp-cmdline",      after = "nvim-cmp" },
+    { "hrsh7th/cmp-path",                    after = "nvim-cmp" },
+    { "hrsh7th/cmp-buffer",                  after = "nvim-cmp" },
+    { "saadparwaiz1/cmp_luasnip",            after = "nvim-cmp" },
+    { "hrsh7th/cmp-cmdline",                 after = "nvim-cmp" },
+    { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
   })
 
   -- Telescope
@@ -264,6 +265,10 @@ return require("packer").startup(function(use)
 
   use({
     "mbbill/undotree"
+  })
+
+  use({
+    "ray-x/lsp_signature.nvim",
   })
   if packer_bootstrap then
     require("packer").sync()

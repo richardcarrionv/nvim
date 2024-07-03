@@ -18,34 +18,39 @@ end
 
 local cmp = require("cmp")
 
+local function select_next_item(fallback)
+  if cmp.visible() then
+    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+  else
+    fallback()
+  end
+end
+local function select_prev_item(fallback)
+  if cmp.visible() then
+    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+  else
+    fallback()
+  end
+end
+
 local mappings = {
 
   ["<C-e>"] = cmp.mapping.close(),
   ["<C-o>"] = cmp.mapping.complete(),
 
-  ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-  ["<C-j>"] = cmp.mapping.scroll_docs(4),
+  ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+  ["<C-d>"] = cmp.mapping.scroll_docs(4),
 
   ["<Enter>"] = cmp.mapping.confirm({ select = true }),
   ["<C-f>"] = cmp.mapping.confirm({ select = true }),
 
   -- Select next item
-  ["<Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
+  ["<Tab>"] = cmp.mapping(select_next_item, { "i", "s" }),
+  ["<C-j>"] = cmp.mapping(select_next_item, { "i", "s" }),
 
   -- Select previous item
-  ["<S-Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
+  ["<S-Tab>"] = cmp.mapping(select_prev_item, { "i", "s" }),
+  ["<C-k>"] = cmp.mapping(select_prev_item, { "i", "s" }),
 
   -- Snippets next
   ["<C-n>"] = cmp.mapping(function(fallback)
@@ -81,16 +86,18 @@ cmp.setup({
   end,
   mapping = cmp.mapping.preset.insert(mappings),
   sources = cmp.config.sources({
-    { name = "nvim_lsp",      max_item_count = 50 },
-    { name = "luasnip",       max_item_count = 5 },
-    { name = "path",          max_item_count = 3 },
-    { name = "latex_symbols", max_item_count = 3 },
+    { name = "nvim_lsp",               max_item_count = 50 },
+    { name = "luasnip",                max_item_count = 5 },
+    { name = "path",                   max_item_count = 3 },
+    { name = "latex_symbols",          max_item_count = 3 },
+    { name = 'nvim_lsp_signature_help' },
   }),
   experimental = {
     ghost_text = true,
   },
   window = {
     completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   snippet = {
     expand = function(args)

@@ -1,13 +1,13 @@
 require("rose-pine").setup({
-  variant = "auto",        -- auto, main, moon, or dawn
-  dark_variant = "main",   -- main, moon, or dawn
+  variant = "auto",      -- auto, main, moon, or dawn
+  dark_variant = "main", -- main, moon, or dawn
   dim_inactive_windows = false,
   extend_background_behind_borders = true,
 
   enable = {
     terminal = true,
-    legacy_highlights = true,     -- Improve compatibility for previous versions of Neovim
-    migrations = true,            -- Handle deprecated options automatically
+    legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+    migrations = true,        -- Handle deprecated options automatically
   },
 
   styles = {
@@ -17,9 +17,7 @@ require("rose-pine").setup({
   },
 
   groups = {
-    background = '#0a0a0a',
-    background_nc = '#0a0a0a',
-    border = 'highlight_med',
+    border = 'muted',
     comment = 'muted',
     link = 'iris',
     punctuation = 'subtle',
@@ -47,7 +45,7 @@ require("rose-pine").setup({
     ColorColumn = { bg = 'rose' },
     --
     -- -- Blend colours against the "base" background
-    CursorLine = { bg = 'foam', fg = "foam", blend = 10 },
+    CursorLine = { blend = 20 },
     StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
 
     -- By default each group adds to the existing config.
@@ -58,6 +56,7 @@ require("rose-pine").setup({
     Constant = { fg = "#f6d59b", inherit = false },
     Number = { fg = "#f6d59b", inherit = false },
     TelescopeBorder = { fg = "highlight_high", bg = "#0a0a0a" },
+    NormalFloat = { bg = "#0a0a0a"},
   },
 
   before_highlight = function(group, highlight, palette)

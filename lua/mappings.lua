@@ -1,7 +1,7 @@
 P = {}
 
 local function command(action)
-	return ":" .. action .. " <CR>"
+  return ":" .. action .. " <CR>"
 end
 
 local terminal = ""
@@ -9,146 +9,145 @@ local config_path = "~/.config/nvim/"
 local isWindows = vim.fn.has("win32")
 
 if not isWindows then
-	terminal = "powershell.exe"
-	config_path = "~/AppData/Local/nvim/"
+  terminal = "powershell.exe"
+  config_path = "~/AppData/Local/nvim/"
 end
 
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv")
 
-
 P.terminal = {
-	none = {
-		["<Esc>"] = "<C-\\><C-n>",
-	},
+  none = {
+    ["<Esc>"] = "<C-\\><C-n>",
+  },
 }
 
 P.normal = {
-	none = {
+  none = {
     j = "gj",
     k = "gk",
-		n = "nzzzv",
-		N = "Nzzzv",
-		["<C-d>"] = "<C-d>zz",
-		["<C-u>"] = "<C-u>zz",
-	},
-	leader = {
-		["<Enter>"] = "o<Esc>",
-		[">"] = "10<C-w>>",
-		["<"] = "10<C-w><",
-		["+"] = "10<C-w>+",
-		["-"] = "10<C-w>-",
-		--A
-		--B
-		bd = command("bd!"),
-		--C
-		ck = command("lprevious"),
-		cj = command("lnext"),
-		-- ca = {code action}
-		co = command("tabnew | tcd " .. config_path .. " | edit lua/plugins.lua  | vsplit init.lua "),
-		--D
-		df = command("Gitsign diffthis"),
-		-- di = command("Trouble document_diagnostics"),
-		--E
-		-- es = command("EslintFixAll"),
-		--F
-		fl = command("Telescope find_files"),
-		ff = command("Telescope buffers"),
-		fm = command("Conform"),
-		--G
-		gp = command("Telescope live_grep "),
-		--H
-		h = command("tabprevious"),
-		--I
-		--J
-		--K
-		-- k = {signature help}
-		--L
-		l = command("tabnext"),
-		--M
-		ma = command("Telescope marks"),
-		mt = "<C-w>T",
-		ml = "<C-w>L",
-		mh = "<C-w>H",
-		mk = "<C-w>K",
-		mj = "<C-w>J",
-		--N
-		nc = command("Gitsigns next_hunk"),
-		nd = vim.diagnostic.goto_next,
-		nf = command("NvimTreeFindFile"),
-		--O
-		ol = command("lopen"),
-		--P
-		--pd = { execute = vim.diagnostic.goto_prev },
-		pd = command("Gitsigns preview_hunk"),
-		--Q
-		q = command("quit"),
-		--R
-		rf = command("Telescope oldfiles"),
-		-- rn = {rename}
-		--S
-		sd = command("lua vim.diagnostic.open_float({focusable = true, focus=true})"),
-		so = command("write | source"),
-		--T
-		tc = command("tabclose"),
-		tn = command("tabnew"),
-		tt = command("tabnew | terminal " .. terminal) .. "i",
-		ts = command("vsplit | terminal " .. terminal) .. "i",
-		ti = command("split | terminal " .. terminal) .. "i",
-		ta = command("TroubleToggle"),
-		--U
-		--V
-		vs = command("source $MYVIMRC"),
-		--W
-		w = command("write"),
-		--Y
-		--Z
-		-- Symbols
-	},
-	control = {
-		h = command("TmuxNavigateLeft"),
-		j = command("TmuxNavigateDown"),
-		k = command("TmuxNavigateUp"),
-		l = command("TmuxNavigateRight"),
-		n = command("NvimTreeToggle"),
-	},
+    n = "nzzzv",
+    N = "Nzzzv",
+    ["<C-d>"] = "<C-d>zz",
+    ["<C-u>"] = "<C-u>zz",
+  },
+  leader = {
+    ["<Enter>"] = "o<Esc>",
+    [">"] = "10<C-w>>",
+    ["<"] = "10<C-w><",
+    ["+"] = "10<C-w>+",
+    ["-"] = "10<C-w>-",
+    --A
+    --B
+    bd = command("bd!"),
+    --C
+    ck = command("lprevious"),
+    cj = command("lnext"),
+    -- ca = {code action}
+    co = command("tabnew | tcd " .. config_path .. " | edit lua/plugins.lua  | vsplit init.lua "),
+    --D
+    df = command("Gitsign diffthis"),
+    -- di = command("Trouble document_diagnostics"),
+    --E
+    -- es = command("EslintFixAll"),
+    --F
+    fl = command("Telescope find_files"),
+    ff = command("Telescope buffers"),
+    fm = command("Conform"),
+    --G
+    gp = command("Telescope live_grep "),
+    --H
+    h = command("tabprevious"),
+    --I
+    --J
+    --K
+    -- k = {signature help}
+    --L
+    l = command("tabnext"),
+    --M
+    ma = command("Telescope marks"),
+    mt = "<C-w>T",
+    ml = "<C-w>L",
+    mh = "<C-w>H",
+    mk = "<C-w>K",
+    mj = "<C-w>J",
+    --N
+    nc = command("Gitsigns next_hunk"),
+    nd = vim.diagnostic.goto_next,
+    nf = command("NvimTreeFindFile"),
+    --O
+    ol = command("lopen"),
+    --P
+    --pd = { execute = vim.diagnostic.goto_prev },
+    pd = command("Gitsigns preview_hunk"),
+    --Q
+    q = command("quit"),
+    --R
+    rf = command("Telescope oldfiles"),
+    -- rn = {rename}
+    --S
+    sd = command("lua vim.diagnostic.open_float({focusable = true, focus=true})"),
+    so = command("write | source"),
+    --T
+    tc = command("tabclose"),
+    tn = command("tabnew"),
+    tt = command("tabnew | terminal " .. terminal) .. "i",
+    ts = command("vsplit | terminal " .. terminal) .. "i",
+    ti = command("split | terminal " .. terminal) .. "i",
+    ta = command("TroubleToggle"),
+    --U
+    --V
+    vs = command("source $MYVIMRC"),
+    --W
+    w = command("write"),
+    --Y
+    --Z
+    -- Symbols
+  },
+  control = {
+    h = command("TmuxNavigateLeft"),
+    j = command("TmuxNavigateDown"),
+    k = command("TmuxNavigateUp"),
+    l = command("TmuxNavigateRight"),
+    n = command("NvimTreeToggle"),
+  },
 }
 
 local make_keymap = {
-	none = function(key)
-		return key
-	end,
-	leader = function(key)
-		return "<leader>" .. key
-	end,
-	control = function(key)
-		return "<C-" .. key .. ">"
-	end,
+  none = function(key)
+    return key
+  end,
+  leader = function(key)
+    return "<leader>" .. key
+  end,
+  control = function(key)
+    return "<C-" .. key .. ">"
+  end,
 }
 
 local function make_mappings(mappings, map_function)
-	for big_key, maps in pairs(mappings) do
-		for key, action in pairs(maps) do
-			map_function(make_keymap[big_key](key), action)
-		end
-	end
+  for big_key, maps in pairs(mappings) do
+    for key, action in pairs(maps) do
+      map_function(make_keymap[big_key](key), action)
+    end
+  end
 end
 
 local function make(modes)
-	local mapping = {
-		normal = function(keymap, action)
-			vim.keymap.set("n", keymap, action, { noremap = true, silent = true })
-		end,
-		terminal = function(keymap, action)
-			vim.keymap.set("t", keymap, action, { noremap = true, silent = true })
-		end,
-		visual = function(keymap, action)
-			vim.keymap.set("v", keymap, action, { noremap = true, silent = true })
-		end,
-	}
-	for mode, mappings in pairs(modes) do
-		make_mappings(mappings, mapping[mode])
-	end
+  local mapping = {
+    normal = function(keymap, action)
+      vim.keymap.set("n", keymap, action, { noremap = true, silent = true })
+    end,
+    terminal = function(keymap, action)
+      vim.keymap.set("t", keymap, action, { noremap = true, silent = true })
+    end,
+    visual = function(keymap, action)
+      vim.keymap.set("v", keymap, action, { noremap = true, silent = true })
+    end,
+  }
+  for mode, mappings in pairs(modes) do
+    make_mappings(mappings, mapping[mode])
+  end
 end
 
 local a = ":silent! %s/\\C\\(;;\\|\\\\'\\)a/á/g<CR>"
@@ -181,52 +180,52 @@ vim.keymap.set("n", "<leader>xo", command("VimtexTocToggle"))
 vim.keymap.set("n", "<leader>xs", command("VimtexStatus"))
 vim.keymap.set("n", "<leader>xx", a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. quotes)
 vim.keymap.set(
-	"n",
-	"<leader>sp",
-	a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. q_marks .. bangs
+  "n",
+  "<leader>sp",
+  a .. e .. i .. o .. u .. am .. em .. um .. om .. um .. enye .. enyem .. q_marks .. bangs
 )
 
 vim.keymap.set("n", "<leader>sm", command("Telescope resume"), {
-	noremap = true,
-	silent = true,
-	desc = "Resume",
+  noremap = true,
+  silent = true,
+  desc = "Resume",
 })
 
 vim.keymap.set("n", "<leader>bx", command("Telescope bibtex"), {
-	noremap = true,
-	silent = true,
-	desc = "Resume",
+  noremap = true,
+  silent = true,
+  desc = "Resume",
 })
 function dump(o)
-	if type(o) == "table" then
-		local s = "{ "
-		for k, v in pairs(o) do
-			if type(k) ~= "number" then
-				k = '"' .. k .. '"'
-			end
-			s = s .. "[" .. k .. "] = " .. dump(v) .. ","
-		end
-		return s .. "} "
-	else
-		return tostring(o)
-	end
+  if type(o) == "table" then
+    local s = "{ "
+    for k, v in pairs(o) do
+      if type(k) ~= "number" then
+        k = '"' .. k .. '"'
+      end
+      s = s .. "[" .. k .. "] = " .. dump(v) .. ","
+    end
+    return s .. "} "
+  else
+    return tostring(o)
+  end
 end
 
 function punt_serch_and_replace(opts)
-	search = opts.fargs[1]
-	replace = opts.fargs[2]
-	punctuation = "\\(\\ \\|;\\|,\\|\\.\\|:\\|\\)"
-	final_punt = "\\(\\ \\|;\\|,\\|\\.\\|:\\)"
-	-- print(search)
-	-- print(replace)
-	-- print(dump(s))
-	vim.cmd("%s/\\C" .. punctuation .. search .. final_punt .. "/\\1" .. replace .. "\\2/gc")
+  search = opts.fargs[1]
+  replace = opts.fargs[2]
+  punctuation = "\\(\\ \\|;\\|,\\|\\.\\|:\\|\\)"
+  final_punt = "\\(\\ \\|;\\|,\\|\\.\\|:\\)"
+  -- print(search)
+  -- print(replace)
+  -- print(dump(s))
+  vim.cmd("%s/\\C" .. punctuation .. search .. final_punt .. "/\\1" .. replace .. "\\2/gc")
 end
 
 function serch_and_replace(opts)
-	search = opts.fargs[1]
-	replace = opts.fargs[2]
-	vim.cmd("%s/\\C" .. search .. "/" .. replace .. "/gc")
+  search = opts.fargs[1]
+  replace = opts.fargs[2]
+  vim.cmd("%s/\\C" .. search .. "/" .. replace .. "/gc")
 end
 
 vim.api.nvim_create_user_command("PR", punt_serch_and_replace, { nargs = "*" })
@@ -234,18 +233,18 @@ vim.api.nvim_create_user_command("PR", punt_serch_and_replace, { nargs = "*" })
 vim.api.nvim_create_user_command("SR", serch_and_replace, { nargs = "*" })
 
 function fsize(file)
-	local current = file:seek() -- get current position
-	local size = file:seek("end") -- get file size
-	file:seek("set", current) -- restore position
-	return size
+  local current = file:seek()   -- get current position
+  local size = file:seek("end") -- get file size
+  file:seek("set", current)     -- restore position
+  return size
 end
 
 function out_file(opts)
-	filename = opts.fargs[1]
-	print(filename)
-	libs_file = io.open("out/" .. filename, "r")
-	print(fsize(libs_file) / 1000000)
-	libs_file:close()
+  filename = opts.fargs[1]
+  print(filename)
+  libs_file = io.open("out/" .. filename, "r")
+  print(fsize(libs_file) / 1000000)
+  libs_file:close()
 end
 
 vim.api.nvim_create_user_command("OutFile", out_file, { nargs = "*" })
@@ -262,7 +261,11 @@ vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 vim.keymap.set("n", "<leader>zm", ":ZenMode<CR>")
 
 vim.keymap.set(
-	"n",
-	"<leader>nn",
-	":lua require('telescope.builtin').find_files({search_dirs={'~/Workspace/notes/'}})<CR>"
+  "n",
+  "<leader>nn",
+  ":lua require('telescope.builtin').find_files({search_dirs={'~/Workspace/notes/'}})<CR>"
 )
+
+vim.keymap.set({ 'i' }, '<C-k>', function()
+  require('lsp_signature').toggle_float_win()
+end, { silent = true, noremap = true, desc = 'toggle signature' })
