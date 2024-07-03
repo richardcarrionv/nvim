@@ -51,18 +51,19 @@ require('nvim-treesitter.configs').setup({
     highlight_definitions = { enable = true },
     -- highlight_current_scope = { enable = false },
   },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-    config = {
-      javascript = {
-        __default = '// %s',
-        jsx_element = '{/* %s */}',
-        jsx_fragment = '{/* %s */}',
-        jsx_attribute = '// %s',
-        comment = '// %s',
-      },
-      typescript = { __default = '// %s', __multiline = '/* %s */' },
-    },
-  },
 })
+
+require('ts_context_commentstring').setup {
+  enable = true,
+  enable_autocmd = false,
+  languages = {
+    javascript = {
+      __default = '// %s',
+      jsx_element = '{/* %s */}',
+      jsx_fragment = '{/* %s */}',
+      jsx_attribute = '// %s',
+      comment = '// %s',
+    },
+    typescript = { __default = '// %s', __multiline = '/* %s */' },
+  },
+}

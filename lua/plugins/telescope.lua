@@ -46,13 +46,12 @@ telescope.setup {
       initial_mode = "normal",
     },
     live_grep = {
-      previewer = false,
       layout_strategy = "horizontal",
       layout_config = {
         prompt_position = "top",
         height = 0.8,
         width = 0.8,
-        preview_width = 0.7,
+        preview_width = 0.4,
       },
       path_display = function(opts, path)
         local tail = require("telescope.utils").path_tail(path)

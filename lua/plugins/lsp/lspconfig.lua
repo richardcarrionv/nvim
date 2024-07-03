@@ -20,7 +20,7 @@ local servers = {
 	"texlab",
 	"tailwindcss",
 	"bashls",
-  "kotlin_language_server"
+  "kotlin_language_server",
 }
 
 require("neodev").setup({})

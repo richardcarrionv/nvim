@@ -53,7 +53,7 @@ o.number = true
 o.relativenumber = true
 --o.numberwidth = 5
 o.signcolumn = "auto"
--- o.cursorline = true
+o.cursorline = true
 
 -- Better editing experience
 o.expandtab = true

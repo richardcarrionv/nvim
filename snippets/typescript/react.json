@@ -6,7 +6,7 @@
   },
   "reactFunctionComponentWithCustomName": {
     "prefix": "cmp",
-    "body": "\ninterface ${1:Component}Props{\n\t${2}\n}\n\nconst ${3:Component} = ({${4}}: ${1:Component}Props) => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n\nexport { ${3:Component} }",
+    "body": "\ninterface ${1:Component}Props{\n\t${2}\n}\n\nexport function ${3:Component}({${4}}: ${1:Component}Props){\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n\n",
     "description": "Creates a React function component"
   },
   "reactFunctionComponentWithCustomNameNoArgs": {

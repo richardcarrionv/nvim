@@ -71,7 +71,6 @@ return require("packer").startup(function(use)
   --Treesitter: Syntax-Highlighting
   use({
     "nvim-treesitter/nvim-treesitter",
-    event = "CursorHold",
     run = function()
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
@@ -116,14 +115,12 @@ return require("packer").startup(function(use)
   use({
     {
       "hrsh7th/nvim-cmp",
-      event = "InsertEnter",
       config = function()
         require("plugins.lsp.nvim-cmp")
       end,
       requires = {
         {
           "L3MON4D3/LuaSnip",
-          event = "CursorHold",
           config = function()
             require("plugins.lsp.luasnip")
           end,
@@ -144,7 +141,7 @@ return require("packer").startup(function(use)
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
+    tag = "0.1.8",
     config = function()
       require("plugins.telescope")
     end,
@@ -265,6 +262,9 @@ return require("packer").startup(function(use)
     'JoosepAlviste/nvim-ts-context-commentstring',
   })
 
+  use({
+    "mbbill/undotree"
+  })
   if packer_bootstrap then
     require("packer").sync()
   end
