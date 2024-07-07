@@ -1,3 +1,8 @@
+local current_signature = function()
+  if not pcall(require, 'lsp_signature') then return end
+  local sig = require("lsp_signature").status_line(100)
+  return sig.hint
+end
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -19,7 +24,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_b = { 'branch', 'diff', 'diagnostics', current_signature },
     lualine_c = { { 'filename', path = 1 } },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },

@@ -270,6 +270,11 @@ return require("packer").startup(function(use)
   use({
     "ray-x/lsp_signature.nvim",
   })
+
+  use({
+    'ThePrimeagen/git-worktree.nvim'
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end

@@ -8,10 +8,10 @@ require("conform").setup({
       vim.lsp.buf.format()
       return { "rustywind" }
     end,
-    javascript = { "prettier", "eslint_d" },
-    javascriptreact = { "prettier", "eslint_d" },
-    typescriptreact = { "prettier", "eslint_d" },
-    typescript = { "prettier", "eslint_d" },
+    javascript = { "prettierd", "eslint_d" },
+    javascriptreact = { "prettierd", "eslint_d" },
+    typescriptreact = { "prettierd", "eslint_d" },
+    typescript = { "prettierd", "eslint_d" },
     tex = { "latexindent" },
     java = { "google-java-format" },
     sql = { "sql_formatter" },

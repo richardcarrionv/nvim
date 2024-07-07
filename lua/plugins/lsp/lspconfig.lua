@@ -65,10 +65,10 @@ for _, server in pairs(servers) do
 end
 
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	signs = true,
-	underline = false,
-	update_in_insert = true,
+	underline = true,
+	update_in_insert = false,
 	severity_sort = true,
 })
 

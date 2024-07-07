@@ -60,7 +60,9 @@ P.normal = {
     h = command("tabprevious"),
     --I
     --J
+    j = command("lnext"),
     --K
+    k = command("lprevious"),
     -- k = {signature help}
     --L
     l = command("tabnext"),
@@ -99,16 +101,17 @@ P.normal = {
     --V
     vs = command("source $MYVIMRC"),
     --W
-    w = command("write"),
+    ww = command("write"),
+    wk = command("lua require('telescope').extensions.git_worktree.git_worktrees()"),
     --Y
     --Z
     -- Symbols
   },
   control = {
-    h = command("TmuxNavigateLeft"),
-    j = command("TmuxNavigateDown"),
-    k = command("TmuxNavigateUp"),
-    l = command("TmuxNavigateRight"),
+    h = "<C-w>h",
+    j = "<C-w>j",
+    k = "<C-w>k",
+    l = "<C-w>l",
     n = command("NvimTreeToggle"),
   },
 }
@@ -269,3 +272,8 @@ vim.keymap.set(
 vim.keymap.set({ 'i' }, '<C-k>', function()
   require('lsp_signature').toggle_float_win()
 end, { silent = true, noremap = true, desc = 'toggle signature' })
+
+vim.keymap.set("n", "<C-space>h", ":TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-space>j", ":TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-space>k", ":TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-space>l", ":TmuxNavigateRight<CR>")
