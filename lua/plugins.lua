@@ -180,7 +180,12 @@ return require("packer").startup(function(use)
   use({ "mfussenegger/nvim-jdtls" })
 
   -- Navigation for tmux and neovim
-  use({ "christoomey/vim-tmux-navigator" })
+  use({
+    "christoomey/vim-tmux-navigator",
+    config = function()
+      vim.g.tmux_navigator_disable_when_zoomed = 1
+    end,
+  })
 
   -- ThePrimeagen Harpoon
   use({
@@ -274,6 +279,8 @@ return require("packer").startup(function(use)
   use({
     'ThePrimeagen/git-worktree.nvim'
   })
+
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   if packer_bootstrap then
     require("packer").sync()

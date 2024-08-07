@@ -11,6 +11,10 @@ vim.cmd([[ autocmd VimEnter * nnoremap <silent> J :let p=getpos('.')<bar>join<ba
 vim.cmd(
   [[au BufRead,BufNewFile,BufEnter */public-web-app/* setlocal ts=4 sts=4 sw=4]])
 
+-- Set the 'iskeyword' option to exclude /, -, and _
+vim.opt.iskeyword:remove({ '/', '-', '_', '.' })
+
+
 -- vim.cmd([[ autocmd VimEnter * hi WinSeparator guifg=#727169 ]])
 --vim.cmd([[ autocmd BufReadPre *.tex setlocal textwidth=80]])
 -- vim.cmd([[ autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252 ]])

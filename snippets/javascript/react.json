@@ -1,12 +1,19 @@
 {
-    "reactFunctionComponent": {
-        "prefix": "flcom",
-        "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
-        "description": "Creates a React function component without PropTypes"
-    },
-    "reactFunctionComponentWithCustomName": {
-        "prefix": "com",
-        "body": "\nconst ${1:functionname} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${1:functionname}",
-        "description": "Creates a React function component with custom name"
-    }
+  "reactFunctionComponent": {
+    "prefix": "flcom",
+    "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
+    "description": "Creates a React function component without PropTypes"
+  },
+  "reactFunctionComponentWithCustomName": {
+    "prefix": "com",
+    "body": "\nconst ${1:functionname} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${1:functionname}",
+    "description": "Creates a React function component with custom name"
+  },
+  "log": {
+    "prefix": "conlog",
+    "body": [
+      "console.log('${1: variable}: ', ${1: variable})"
+    ],
+    "description": "Logs a variable"
+  }
 }

@@ -108,10 +108,6 @@ P.normal = {
     -- Symbols
   },
   control = {
-    h = "<C-w>h",
-    j = "<C-w>j",
-    k = "<C-w>k",
-    l = "<C-w>l",
     n = command("NvimTreeToggle"),
   },
 }
@@ -277,3 +273,9 @@ vim.keymap.set("n", "<C-space>h", ":TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-space>j", ":TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-space>k", ":TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-space>l", ":TmuxNavigateRight<CR>")
+
+
+vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true, noremap = true})
+vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true, noremap = true})
+vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true, noremap = true})
+vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true, noremap = true})

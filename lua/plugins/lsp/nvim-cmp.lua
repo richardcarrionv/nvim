@@ -90,7 +90,8 @@ cmp.setup({
     { name = "luasnip",                max_item_count = 5 },
     { name = "path",                   max_item_count = 3 },
     { name = "latex_symbols",          max_item_count = 3 },
-    { name = 'nvim_lsp_signature_help' },
+    -- Annoying
+    -- { name = 'nvim_lsp_signature_help' },
   }),
   experimental = {
     ghost_text = true,
