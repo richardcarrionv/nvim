@@ -44,13 +44,6 @@ return {
           scope_incremental = 'mc',
         },
       },
-      -- nvim-treesitter/nvim-treesitter-textobjects
-      textobjects = {
-      },
-      -- windwp/nvim-ts-autotag
-      autotag = {
-        enable = true,
-      },
       -- nvim-treesitter/nvim-treesitter-refactor
       refactor = {
         highlight_definitions = { enable = true },
