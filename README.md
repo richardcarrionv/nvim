@@ -2,6 +2,8 @@
 
 ### Dependecies
 
+- LuaRocks
+
 - ```
   zig clang nodejs pip ripgrep fd-find mupdf libxcrypt-compat
   ```
