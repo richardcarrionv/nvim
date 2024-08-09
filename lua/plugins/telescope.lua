@@ -1,7 +1,8 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.8',
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.8',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  config = function ()
+  config = function()
     local telescope_ignore = require('plugins.misc.telescope-ignore')
     local telescope = require('telescope')
     telescope.setup {
@@ -70,7 +71,6 @@ return {
         },
 
         lsp_references = {
-          -- theme = "dropdown",
           initial_mode = "normal",
           show_line = true,
         },
