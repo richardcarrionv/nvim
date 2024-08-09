@@ -48,7 +48,10 @@ M.on_attach = function(client, bufnr)
     vim.lsp.buf.definition { on_list = on_list }
   end, bufopts)
   vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", bufopts)
-  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references show_line=false<CR>", bufopts)
+  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references include_declaration=false show_line=false<CR>", bufopts)
+  vim.keymap.set("n", "gw",
+    "<cmd>lua require('custom.telescope.lsp_references').references({include_imports=false,include_declaration=false, show_line=false})<CR>",
+    bufopts)
 
   vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 
