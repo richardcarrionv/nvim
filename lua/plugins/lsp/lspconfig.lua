@@ -23,9 +23,8 @@ local servers = {
   "kotlin_language_server",
 }
 
-require("neodev").setup({})
-
 mason.setup()
+
 mason_lspconfig.setup({
 	ensure_installed = servers,
 })

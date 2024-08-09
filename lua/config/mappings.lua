@@ -41,10 +41,7 @@ P.normal = {
     --B
     bd = command("bd!"),
     --C
-    ck = command("lprevious"),
-    cj = command("lnext"),
     -- ca = {code action}
-    co = command("tabnew | tcd " .. config_path .. " | edit lua/plugins.lua  | vsplit init.lua "),
     --D
     df = command("Gitsign diffthis"),
     -- di = command("Trouble document_diagnostics"),
@@ -77,11 +74,13 @@ P.normal = {
     nc = command("Gitsigns next_hunk"),
     nd = vim.diagnostic.goto_next,
     nf = command("NvimTreeFindFile"),
+    nl = command("lnext"),
     --O
     ol = command("lopen"),
     --P
     --pd = { execute = vim.diagnostic.goto_prev },
     pd = command("Gitsigns preview_hunk"),
+    pl = command("lprevious"),
     --Q
     q = command("quit"),
     --R
@@ -279,3 +278,4 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true, noremap = true})
 vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true, noremap = true})
 vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true, noremap = true})
 vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true, noremap = true})
+vim.keymap.set('n', '<leader>gu', ':Telescope git_status<CR>', { silent = true, noremap = true})

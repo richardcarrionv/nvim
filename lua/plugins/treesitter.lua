@@ -1,69 +1,61 @@
-require('nvim-treesitter.configs').setup({
-  auto_install = true,
-  ensure_installed = {
-    'lua',
-    'javascript',
-    'typescript',
-    'tsx',
-    'markdown',
-    'markdown_inline',
-    'html',
-    'css',
-    'json',
-    'bash',
-    'python',
-    'java',
-    'php',
-    'vim',
-    'latex',
-    'sql',
-    'bash',
-  },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-    disable = {
-      "latex"
-    },
-  },
-  indent = {
-    enable = true,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = 'gs',
-      -- NOTE: These are visual mode mappings
-      node_incremental = 'gs',
-      node_decremental = 'gS',
-      scope_incremental = '<leader>gc',
-    },
-  },
-  -- nvim-treesitter/nvim-treesitter-textobjects
-  textobjects = {
-  },
-  -- windwp/nvim-ts-autotag
-  autotag = {
-    enable = true,
-  },
-  -- nvim-treesitter/nvim-treesitter-refactor
-  refactor = {
-    highlight_definitions = { enable = true },
-    -- highlight_current_scope = { enable = false },
-  },
-})
-
-require('ts_context_commentstring').setup {
-  enable = true,
-  enable_autocmd = false,
-  languages = {
-    javascript = {
-      __default = '// %s',
-      jsx_element = '{/* %s */}',
-      jsx_fragment = '{/* %s */}',
-      jsx_attribute = '// %s',
-      comment = '// %s',
-    },
-    typescript = { __default = '// %s', __multiline = '/* %s */' },
-  },
+return {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  config = function()
+    local configs = require("nvim-treesitter.configs")
+    configs.setup({
+      auto_install = true,
+      ensure_installed = {
+        'lua',
+        'javascript',
+        'typescript',
+        'tsx',
+        'markdown',
+        'markdown_inline',
+        'html',
+        'css',
+        'json',
+        'bash',
+        'python',
+        'java',
+        'php',
+        'vim',
+        'latex',
+        'sql',
+        'bash',
+      },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+        disable = {
+          "latex"
+        },
+      },
+      indent = {
+        enable = true,
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = 'ms',
+          -- NOTE: These are visual mode mappings
+          node_incremental = 'ms',
+          node_decremental = 'mS',
+          scope_incremental = 'mc',
+        },
+      },
+      -- nvim-treesitter/nvim-treesitter-textobjects
+      textobjects = {
+      },
+      -- windwp/nvim-ts-autotag
+      autotag = {
+        enable = true,
+      },
+      -- nvim-treesitter/nvim-treesitter-refactor
+      refactor = {
+        highlight_definitions = { enable = true },
+        -- highlight_current_scope = { enable = false },
+      },
+    })
+  end,
 }

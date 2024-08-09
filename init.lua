@@ -1,16 +1,43 @@
-require("settings")
-require("mappings")
-require("plugins")
+require("config.settings")
+require("config.mappings")
+require("config.lazy")
 
-require("plugins.rose-pine")
-require("plugins.uuid-plugin")
 
-require("plugins.dap")
-require("dapui").setup()
-require("plugins.harpoon")
-require("plugins.fidget")
-require("plugins.nvim-lint")
-require("plugins.lualine")
-require("plugins.signature-help")
-require("plugins.worktrees")
-require("plugins.catpuccino")
+-- Pending plugins
+-- use("rafcamlet/nvim-luapad")
+--
+-- use({
+--   "mfussenegger/nvim-dap",
+-- })
+--
+-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+-- use({
+--   "ray-x/lsp_signature.nvim",
+-- })
+--
+-- use({
+--   'ThePrimeagen/git-worktree.nvim'
+-- })
+--
+--ColorScheme
+-- use({
+--   "rebelot/kanagawa.nvim",
+--   config = function()
+--     require("plugins.kanagawa")
+--   end,
+-- })
+-- use({
+--   "rose-pine/neovim",
+--   as = "rose-pine",
+--   config = function()
+--     require("plugins.rose-pine")
+--   end,
+-- })
+-- use({
+--   "owickstrom/vim-colors-paramount",
+-- })
+-- use({ "nyoom-engineering/oxocarbon.nvim" })
+-- use({
+--   "folke/tokyonight.nvim",
+-- })
+-- use({ "ellisonleao/gruvbox.nvim" })
