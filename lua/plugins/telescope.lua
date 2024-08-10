@@ -5,6 +5,7 @@ return {
   config = function()
     local telescope_ignore = require('plugins.misc.telescope-ignore')
     local telescope = require('telescope')
+    local actions = require('telescope.actions')
     telescope.setup {
       defaults = {
         path_display = function(opts, path)
@@ -14,29 +15,25 @@ return {
         file_ignore_patterns = telescope_ignore.ignored_files,
         mappings = {
           i = {
-            ["<C-k>"] = "move_selection_previous",
-            ["<C-j>"] = "move_selection_next",
-            ["<C-l>"] = "send_selected_to_loclist",
-            ["<C-h>"] = "select_horizontal",
-            ["<C-v>"] = "select_vertical",
-            ["<C-]>"] = "close",
-
-            -- ["<leader>q"] = "close",
-            -- ["<leader>v"] = "select_vertical",
-            -- ["<leader>h"] = "select_horizontal",
-            -- ["<leader>t"] = "select_tab",
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-l>"] = actions.send_selected_to_loclist,
+            ["<C-h>"] = actions.select_horizontal,
+            ["<C-v>"] = actions.select_vertical,
+            ["<C-]>"] = actions.close,
           },
           n = {
-            ["k"] = "move_selection_previous",
-            ["j"] = "move_selection_next",
-            ["l"] = "send_selected_to_loclist",
-            ["<leader>q"] = "close",
-            ["q"] = "close",
-
-            -- ["v"] = "select_vertical",
-            -- ["h"] = "select_horizontal",
-
-            ["t"] = "select_tab",
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-l>"] = actions.send_selected_to_loclist,
+            ["<C-h>"] = actions.select_horizontal,
+            ["<C-v>"] = actions.select_vertical,
+            ["k"] = actions.move_selection_previous,
+            ["j"] = actions.move_selection_next,
+            ["l"] = actions.send_selected_to_loclist,
+            ["<leader>q"] = actions.close,
+            ["q"] = actions.close,
+            ["t"] = actions.select_tab,
           }
         },
         sorting_strategy = "ascending",

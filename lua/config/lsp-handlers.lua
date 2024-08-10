@@ -63,7 +63,7 @@ M.on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>na", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
 
-  vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", bufopts)
+  vim.keymap.set("n", "<leader>cc", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
 end
 
 return M
