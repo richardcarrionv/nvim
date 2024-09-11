@@ -8,6 +8,7 @@ return {
     local actions = require('telescope.actions')
     telescope.setup {
       defaults = {
+        scroll_strategy = "limit",
         path_display = function(opts, path)
           local tail = require("telescope.utils").path_tail(path)
           return string.format("%s [%s]", tail, path)

@@ -19,15 +19,12 @@ return {
       "html",
       "cssls",
       "jsonls",
-      "jdtls",
-      "intelephense",
       "pyright",
-      "tsserver",
+      "ts_ls",
       "lua_ls",
       "texlab",
       "tailwindcss",
       "bashls",
-      "kotlin_language_server",
     }
 
     local vim_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -46,7 +43,7 @@ return {
         capabilities = capabilities,
       }
 
-      if server == "tsserver" then
+      if server == "ts_ls" then
         lspconfig[server].setup({
           on_attach = handlers.on_attach,
           capabilities = capabilities,
