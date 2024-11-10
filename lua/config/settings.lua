@@ -38,6 +38,7 @@ vim.opt.statusline = "%F %m %= %l:%c / %L"
 --vim.api.nvim_command('filetype plugin indent on')
 g.loaded = 1
 g.loaded_netrwPlugin = 1
+vim.opt.fillchars = vim.opt.fillchars + 'diff: '
 
 o.termguicolors = true
 

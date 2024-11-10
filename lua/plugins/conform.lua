@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  config = function ()
+  config = function()
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
@@ -18,6 +18,10 @@ return {
         tex = { "latexindent" },
         java = { "google-java-format" },
         sql = { "sql_formatter" },
+        ml = { "xmlformat" },
+        gradle = { "npm-groovy-lint" },
+        groovy = { "npm-groovy-lint" },
+        bash = { "beautysh" }
       },
     })
 

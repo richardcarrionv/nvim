@@ -53,6 +53,7 @@ P.normal = {
     fm = command("Conform"),
     --G
     gp = command("Telescope live_grep "),
+    gg = command("LazyGit"),
     --H
     h = command("tabprevious"),
     --I
@@ -89,6 +90,7 @@ P.normal = {
     --S
     sd = command("lua vim.diagnostic.open_float({focusable = true, focus=true})"),
     so = command("write | source"),
+    ss = "<C-z>",
     --T
     tc = command("tabclose"),
     tn = command("tabnew"),
@@ -104,6 +106,7 @@ P.normal = {
     wk = command("lua require('telescope').extensions.git_worktree.git_worktrees()"),
     --Y
     --Z
+    zu = command("Lazy update")
     -- Symbols
   },
   control = {
@@ -258,25 +261,41 @@ vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 
 vim.keymap.set("n", "<leader>zm", ":ZenMode<CR>")
 
-vim.keymap.set(
-  "n",
-  "<leader>nn",
-  ":lua require('telescope.builtin').find_files({search_dirs={'~/Workspace/notes/'}})<CR>"
-)
+vim.keymap.set("n", "<leader>nn",
+  ":lua require('telescope.builtin').find_files({search_dirs={'~/Workspace/notes/'}})<CR>")
 
 vim.keymap.set({ 'i' }, '<C-k>', function()
   require('lsp_signature').toggle_float_win()
 end, { silent = true, noremap = true, desc = 'toggle signature' })
 
-vim.keymap.set("n", "<C-space>h", ":TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "<C-space>j", ":TmuxNavigateDown<CR>")
-vim.keymap.set("n", "<C-space>k", ":TmuxNavigateUp<CR>")
-vim.keymap.set("n", "<C-space>l", ":TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C>h", ":TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C>j", ":TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C>k", ":TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C>l", ":TmuxNavigateRight<CR>")
 
 
-vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true, noremap = true})
-vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true, noremap = true})
-vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true, noremap = true})
-vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true, noremap = true})
-vim.keymap.set('n', '<leader>gu', ':Telescope git_status<CR>', { silent = true, noremap = true})
-vim.keymap.set({"n", "v"}, 'me', '%', { silent = true, noremap = true})
+vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true, noremap = true })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true, noremap = true })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true, noremap = true })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>gu', ':Telescope git_status<CR>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>gb', ':Gitsigns blame<CR>', { silent = true, noremap = true })
+vim.keymap.set({ "n", "v" }, 'me', '%', { silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>mi', '<C-z>', { silent = true, noremap = true })
+
+vim.keymap.set('v', 'j', 'gj', { silent = true, noremap = true })
+vim.keymap.set('v', 'k', 'gk', { silent = true, noremap = true })
+
+
+-- vim.keymap.set("n", "<leader>", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but the current one" }) -- https://stackoverflow.com/a/42071865/516188
+
+vim.api.nvim_create_user_command('WipeBuffs', function()
+  local bufinfos = vim.fn.getbufinfo({ buflisted = 1 })
+  vim.tbl_map(function(bufinfo)
+    if bufinfo.changed == 0 and (not bufinfo.windows or #bufinfo.windows == 0) then
+      print(('Deleting buffer %d : %s'):format(bufinfo.bufnr, bufinfo.name))
+      vim.api.nvim_buf_delete(bufinfo.bufnr, { force = false, unload = false })
+    end
+  end, bufinfos)
+end, { desc = 'Wipeout all buffers not shown in a window' })

@@ -25,6 +25,8 @@ return {
       "texlab",
       "tailwindcss",
       "bashls",
+      "gradle_ls"
+      -- "kotlin_language_server"
     }
 
     local vim_capabilities = vim.lsp.protocol.make_client_capabilities()

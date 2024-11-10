@@ -77,10 +77,10 @@ return {
       end,
       mapping = cmp.mapping.preset.insert(mappings),
       sources = cmp.config.sources({
-        { name = "nvim_lsp",      max_item_count = 20 },
-        { name = "luasnip",       max_item_count = 5 },
-        { name = "path",          max_item_count = 3 },
-        { name = "latex_symbols", max_item_count = 3 },
+        { name = "nvim_lsp", max_item_count = 20 },
+        { name = "luasnip",  max_item_count = 5 },
+        { name = "path",     max_item_count = 3 },
+        -- { name = "latex_symbols", max_item_count = 3 },
         -- Annoying
         -- { name = 'nvim_lsp_signature_help' },
       }),
@@ -108,6 +108,13 @@ return {
           return item
         end,
       },
+    })
+
+    cmp.setup.filetype({ "sql" }, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" }
+      }
     })
   end,
   dependencies = {
