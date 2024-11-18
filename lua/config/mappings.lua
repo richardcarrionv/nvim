@@ -75,7 +75,8 @@ P.normal = {
     nc = command("Gitsigns next_hunk"),
     nd = vim.diagnostic.goto_next,
     nf = command("NvimTreeFindFile"),
-    nl = command("lnext"),
+    nn = command("lnext"),
+    pp = command("lprevious"),
     --O
     ol = command("lopen"),
     --P
@@ -261,9 +262,6 @@ vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 
 vim.keymap.set("n", "<leader>zm", ":ZenMode<CR>")
 
-vim.keymap.set("n", "<leader>nn",
-  ":lua require('telescope.builtin').find_files({search_dirs={'~/Workspace/notes/'}})<CR>")
-
 vim.keymap.set({ 'i' }, '<C-k>', function()
   require('lsp_signature').toggle_float_win()
 end, { silent = true, noremap = true, desc = 'toggle signature' })
@@ -299,3 +297,6 @@ vim.api.nvim_create_user_command('WipeBuffs', function()
     end
   end, bufinfos)
 end, { desc = 'Wipeout all buffers not shown in a window' })
+
+-- DUPLICATES
+-- :syn clear Repeat | g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' | nohlsearch

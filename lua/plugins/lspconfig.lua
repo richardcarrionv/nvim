@@ -8,6 +8,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
+    local util = require 'lspconfig.util'
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
     local lspconfig = require("lspconfig")
@@ -22,11 +23,12 @@ return {
       "pyright",
       "ts_ls",
       "lua_ls",
-      "texlab",
+      -- "texlab",
       "tailwindcss",
       "bashls",
-      "gradle_ls"
-      -- "kotlin_language_server"
+      "gradle_ls",
+      "kotlin_language_server",
+      "yamlls"
     }
 
     local vim_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -38,6 +40,21 @@ return {
     mason_lspconfig.setup({
       ensure_installed = servers,
     })
+
+
+    --- The presence of one of these files indicates a project root directory
+    --
+    --  These are configuration files for the various build systems supported by
+    --  Kotlin. I am not sure whether the language server supports Ant projects,
+    --  but I'm keeping it here as well since Ant does support Kotlin.
+    local kotlin_root_files = {
+      'settings.gradle', -- Gradle (multi-project)
+      'settings.gradle.kts', -- Gradle (multi-project)
+      'build.xml',       -- Ant
+      'pom.xml',         -- Maven
+      'build.gradle',    -- Gradle
+      'build.gradle.kts', -- Gradle
+    }
 
     for _, server in pairs(servers) do
       local setup_options = {
@@ -67,6 +84,21 @@ return {
               },
             },
           },
+        })
+      elseif server == "gradle_ls" then
+        lspconfig[server].setup({
+          on_attach = handlers.on_attach,
+          capabilities = capabilities,
+          autostart = false,
+        })
+      elseif server == "kotlin_language_server" then
+        lspconfig[server].setup({
+          on_attach = handlers.on_attach,
+          capabilities = capabilities,
+          autostart = false,
+          init_options = {
+            storagePath = util.root_pattern(unpack(kotlin_root_files))(vim.fn.expand '%:p:h'),
+          }
         })
       else
         lspconfig[server].setup(setup_options)
