@@ -18,6 +18,10 @@
         "path": "./python/python.json"
       },
       {
+        "language": "go",
+        "path": "./go/go.json"
+      },
+      {
         "language": ["plaintex", "tex"],
         "path": "./latex/latex.json"
       }

@@ -28,7 +28,8 @@ return {
       "bashls",
       "gradle_ls",
       "kotlin_language_server",
-      "yamlls"
+      "yamlls",
+      "gopls"
     }
 
     local vim_capabilities = vim.lsp.protocol.make_client_capabilities()

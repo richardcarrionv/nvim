@@ -71,7 +71,7 @@ o.cindent = true
 o.autoindent = true
 o.wrap = false
 o.textwidth = 300
-o.tabstop = 2
+o.tabstop = 4
 o.shiftwidth = 0
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 

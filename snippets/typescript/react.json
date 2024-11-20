@@ -1,55 +1,70 @@
 {
-  "reactFunctionComponent": {
-    "prefix": "flcmp",
-    "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
-    "description": "Creates a React function component without PropTypes"
-  },
-  "reactFunctionComponentWithCustomName": {
-    "prefix": "cmp",
-    "body": [
-      "",
-      "interface ${1:Component}Props{",
-      "\t${2}",
-      "}",
-      "",
-      "export function ${1: Component}({${3}}: ${1:Component}Props){",
-      "\treturn (${4})",
-      "}"
-    ],
-    "description": "Creates a React function component"
-  },
-  "reactFunctionComponentWithCustomNameNoArgs": {
-    "prefix": "cmpnoprops",
-    "body": [
-      "",
-      "export function ${1: Component}(){",
-      "\treturn (${2})",
-      "}"
-    ],
-    "description": "Creates a React function component with no props"
-  },
-  "log": {
-    "prefix": "clv",
-    "body": [
-      "console.log(\"${1}: \", ${1})"
-    ],
-    "description": "Logs a variable"
-  },
-  "reactLocalComponent": {
-    "prefix": "lccmp",
-    "body": "\ninterface ${1:Component}Props{\n\t${2}\n}\n\nconst ${3:Component} = ({${4}}: ${1:Component}Props) => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n",
-    "description": "Creates a React function component without export"
-  },
-  "reactLocalComponentNoProps": {
-    "prefix": "lccmpnoprops",
-    "body": "\nconst ${1:Component} = () => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n",
-    "description": "Creates a React function component without export"
-  },
-  "antdicon": {
-    "prefix": "antdicon",
-    "body": [
-      "import { $1 } from \"@ant-design/icons\"; "
-    ],
-    "description": "Import an icon from AntD"
-  }
+    "reactFunctionComponent": {
+        "prefix": "flcmp",
+        "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
+        "description": "Creates a React function component without PropTypes"
+    },
+    "reactFunctionComponentWithCustomName": {
+        "prefix": "cmp",
+        "body": [
+            "",
+            "interface ${1:Component}Props{",
+            "\t${2}",
+            "}",
+            "",
+            "export function ${1: Component}({${3}}: ${1:Component}Props){",
+            "\treturn (${4})",
+            "}"
+        ],
+        "description": "Creates a React function component"
+    },
+    "reactFunctionComponentWithCustomNameAndProps": {
+        "prefix": "cmp",
+        "body": [
+            "",
+            "interface ${1:Component}Props{",
+            "\t${2}",
+            "}",
+            "",
+            "export function ${1: Component}(props: ${1:Component}Props){",
+            "\tconst {${3}} = props;",
+            "\treturn <></>",
+            "}"
+        ],
+        "description": "Creates a React function component"
+    },
+    "reactFunctionComponentWithCustomNameNoArgs": {
+        "prefix": "cmpnoprops",
+        "body": [
+            "",
+            "export function ${1: Component}(){",
+            "\treturn (${2})",
+            "}"
+        ],
+        "description": "Creates a React function component with no props"
+    },
+    "log": {
+        "prefix": "clv",
+        "body": [
+            "console.log(\"${1}: \", ${1})"
+        ],
+        "description": "Logs a variable"
+    },
+    "reactLocalComponent": {
+        "prefix": "lccmp",
+        "body": "\ninterface ${1:Component}Props{\n\t${2}\n}\n\nconst ${3:Component} = ({${4}}: ${1:Component}Props) => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n",
+        "description": "Creates a React function component without export"
+    },
+    "reactLocalComponentNoProps": {
+        "prefix": "lccmpnoprops",
+        "body": "\nconst ${1:Component} = () => {\n\treturn (\n\t\t<${5}>\n\t\t\t$0\n\t\t</${5}>\n\t)\n}\n",
+        "description": "Creates a React function component without export"
+    },
+    "antdicon": {
+        "prefix": "antdicon",
+        "body": [
+            "import { $1 } from \"@ant-design/icons\"; "
+        ],
+        "description": "Import an icon from AntD"
+    }
 }

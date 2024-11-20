@@ -1,0 +1,32 @@
+{
+    "createBubbleteaModel": {
+        "prefix": "bbm",
+        "body": [
+            "import (",
+            "\ttea \"github.com/charmbracelet/bubbletea\"",
+            ")",
+            "",
+            "type ${1: Model} struct {",
+            "\t${3}",
+            "}",
+            "",
+            "func Create${1: Model}(children []*tea.Model, activeIndex uint8) ${1: Model} {",
+            "\treturn ${1: Model}{",
+            "\t}",
+            "}",
+            "",
+            "func (${2: model} ${1: Model}) Init() tea.Cmd {",
+            "\treturn nil",
+            "}",
+            "",
+            "func (${2: model} ${1: Model}) Update(msg tea.Msg) (tea.Model, tea.Cmd) {",
+            "\treturn ${2: model}, nil",
+            "}",
+            "",
+            "func (${2: model} ${1: Model}) View() (s string) {",
+            "\treturn",
+            "}"
+        ],
+        "description": "Creates a Bubbletea model"
+    }
+}
