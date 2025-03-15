@@ -45,6 +45,9 @@ return {
         }
       },
       pickers = {
+        find_files = {
+          hidden = true,
+        },
         resume = {
           initial_mode = "normal",
         },

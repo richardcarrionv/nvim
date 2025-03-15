@@ -22,7 +22,8 @@ return {
                 gradle = { "npm-groovy-lint" },
                 groovy = { "npm-groovy-lint" },
                 bash = { "beautysh" },
-                markdown = { "markdown-toc", "mdformat", "mdsf" }
+                markdown = { "markdown-toc", "mdformat", "mdsf" },
+                nix = { "alejandra"}
             },
         })
 

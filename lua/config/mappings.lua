@@ -260,6 +260,10 @@ vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<CR>")
 vim.keymap.set("n", "<leader>dh", ":lua require('dap.ui.widgets').hover()<CR>")
 vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
 
+
+vim.keymap.set("n", "<leader>gd", ":lua require('telescope.builtin').live_grep({ additional_args = function() return { \"--hidden\", \"--no-ignore\" } end })<CR>")
+vim.keymap.set("n", "<leader>ds", ":lua require('dapui').toggle()<CR>")
+
 vim.keymap.set("n", "<leader>zm", ":ZenMode<CR>")
 
 vim.keymap.set({ 'i' }, '<C-k>', function()
