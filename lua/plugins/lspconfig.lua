@@ -40,10 +40,10 @@ return {
 
         mason.setup()
 
-        mason_lspconfig.setup({
-            ensure_installed = servers,
-            automatic_installation = true,
-        })
+        -- mason_lspconfig.setup({
+        --     ensure_installed = servers,
+        --     automatic_installation = true,
+        -- })
 
 
         --- The presence of one of these files indicates a project root directory
