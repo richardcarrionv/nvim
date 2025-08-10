@@ -5,9 +5,9 @@ return {
 		require("catppuccin").setup({
 			color_overrides = {
 				mocha = {
-					-- mantle = "#12121a",
-					base = "#12121C",
-					crust = "#2a283e", -- deeper purple for borders
+					base = "#0d0d13", -- editor background (darker)
+					mantle = "#12121a", -- panel background (slightly lighter)
+					crust = "#12121a", -- optional: matches mantle for borders
 				},
 			},
 		})
