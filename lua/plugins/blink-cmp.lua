@@ -74,6 +74,8 @@ return {
 					and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
 				then
 					return {}
+				elseif success and node and vim.tbl_contains({ "arguments" }, node:type()) then
+					return { "lsp", "path" }
 				else
 					return { "lsp", "path", "snippets" }
 				end

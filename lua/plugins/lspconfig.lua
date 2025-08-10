@@ -21,7 +21,8 @@ return {
 			-- "tailwindcss",
 			"bashls",
 			"gradle_ls",
-			"kotlin_language_server",
+			-- "kotlin_language_server",
+			"kotlin_lsp",
 			"yamlls",
 			-- "gopls"
 			-- "nil_ls"
