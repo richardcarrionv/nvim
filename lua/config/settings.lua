@@ -5,7 +5,7 @@ local o = vim.o
 
 -- vim.cmd([[ autocmd VimEnter * hi NonText guifg=bg]])
 
-vim.cmd([[ autocmd VimEnter * highlight EndOfBuffer guifg=black guifg=black]])
+-- vim.cmd([[ autocmd VimEnter * highlight EndOfBuffer guifg=black guifg=black]])
 vim.cmd([[ autocmd VimEnter * nnoremap <silent> J :let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>]])
 
 vim.cmd(

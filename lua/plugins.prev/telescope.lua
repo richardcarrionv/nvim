@@ -74,7 +74,6 @@ return {
         lsp_references = {
           initial_mode = "normal",
           show_line = true,
-          previewer = true,
         },
 
         lsp_definitions = {
